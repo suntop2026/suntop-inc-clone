@@ -7,11 +7,23 @@ import { useSearchParams } from "next/navigation"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
-import { staticProducts, categories } from "@/lib/static-data"
+import { categories } from "@/lib/static-data"
 import { SITE_LOGO } from "@/lib/products-data"
 import { ArrowLeft } from "lucide-react"
 
 const FALLBACK_IMAGE = SITE_LOGO
+
+interface Product {
+  id: string
+  name: string
+  category: string
+  price: number
+  moq: number
+  image: string
+  imageAlt: string
+  description: string
+  slug: string
+}
 
 function ProductImage({ src, alt }: { src: string; alt: string }) {
   const [imgSrc, setImgSrc] = useState(src)
@@ -47,6 +59,32 @@ export function ProductsContent() {
   const categoryParam = searchParams.get("category")
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
+  const [products, setProducts] = useState<Product[]>([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+
+  // Fetch products from API
+  useEffect(() => {
+    async function fetchProducts() {
+      try {
+        setLoading(true)
+        const response = await fetch("/api/products")
+        if (!response.ok) {
+          throw new Error("Failed to fetch products")
+        }
+        const data = await response.json()
+        setProducts(data.products || [])
+        setError(null)
+      } catch (err) {
+        console.error("Error fetching products:", err)
+        setError("Failed to load products. Please try again later.")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchProducts()
+  }, [])
 
   useEffect(() => {
     if (categoryParam) {
@@ -60,7 +98,7 @@ export function ProductsContent() {
   }, [categoryParam])
 
   const filteredProducts =
-    selectedCategory === "All" ? staticProducts : staticProducts.filter((p) => p.category === selectedCategory)
+    selectedCategory === "All" ? products : products.filter((p) => p.category === selectedCategory)
 
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category)
@@ -72,6 +110,51 @@ export function ProductsContent() {
     e.preventDefault()
     e.stopPropagation()
     router.push(`/quote?product=${encodeURIComponent(productName)}`)
+  }
+
+  if (loading) {
+    return (
+      <main className="min-h-screen pt-24 pb-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="animate-pulse">
+            <div className="h-8 w-32 bg-muted rounded mb-8" />
+            <div className="text-center mb-12">
+              <div className="h-12 w-64 bg-muted rounded mx-auto mb-4" />
+              <div className="h-6 w-96 bg-muted rounded mx-auto" />
+            </div>
+            <div className="flex justify-center gap-2 mb-12">
+              {[...Array(6)].map((_, i) => (
+                <div key={i} className="h-10 w-24 bg-muted rounded-full" />
+              ))}
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[...Array(8)].map((_, i) => (
+                <div key={i} className="border rounded-lg overflow-hidden">
+                  <div className="aspect-square bg-muted" />
+                  <div className="p-4 space-y-2">
+                    <div className="h-4 w-16 bg-muted rounded" />
+                    <div className="h-6 w-32 bg-muted rounded" />
+                    <div className="h-4 w-24 bg-muted rounded" />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </main>
+    )
+  }
+
+  if (error) {
+    return (
+      <main className="min-h-screen pt-24 pb-20">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center py-12">
+            <p className="text-red-500 text-lg">{error}</p>
+          </div>
+        </div>
+      </main>
+    )
   }
 
   return (
@@ -91,7 +174,7 @@ export function ProductsContent() {
           </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
             {selectedCategory === "All"
-              ? `Explore our complete catalog of ${staticProducts.length}+ promotional products`
+              ? `Explore our complete catalog of ${products.length}+ promotional products`
               : `Browse our ${filteredProducts.length} ${selectedCategory.toLowerCase()} products`}
           </p>
         </div>
@@ -109,7 +192,7 @@ export function ProductsContent() {
             >
               {category}
               {category !== "All" && (
-                <span className="ml-1 text-xs">({staticProducts.filter((p) => p.category === category).length})</span>
+                <span className="ml-1 text-xs">({products.filter((p) => p.category === category).length})</span>
               )}
             </button>
           ))}
