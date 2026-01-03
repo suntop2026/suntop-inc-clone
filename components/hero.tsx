@@ -91,7 +91,10 @@ export function Hero() {
               {/* Top Left - Large */}
               <div className="col-span-2 relative h-64 rounded-2xl overflow-hidden shadow-2xl group">
                 <Image
-                  src={siteConfig.hero.productShowcase.tshirts.url || "/placeholder.svg"}
+                  src={
+                    siteConfig.hero.productShowcase.tshirts.url ||
+                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop"
+                  }
                   alt={siteConfig.hero.productShowcase.tshirts.alt}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -107,7 +110,10 @@ export function Hero() {
               {/* Bottom Left */}
               <div className="relative h-48 rounded-2xl overflow-hidden shadow-2xl group">
                 <Image
-                  src={siteConfig.hero.productShowcase.mugs.url || "/placeholder.svg"}
+                  src={
+                    siteConfig.hero.productShowcase.mugs.url ||
+                    "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=800&h=800&fit=crop"
+                  }
                   alt={siteConfig.hero.productShowcase.mugs.alt}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -120,7 +126,10 @@ export function Hero() {
               {/* Bottom Right */}
               <div className="relative h-48 rounded-2xl overflow-hidden shadow-2xl group">
                 <Image
-                  src={siteConfig.hero.productShowcase.tech.url || "/placeholder.svg"}
+                  src={
+                    siteConfig.hero.productShowcase.tech.url ||
+                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop"
+                  }
                   alt={siteConfig.hero.productShowcase.tech.alt}
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"

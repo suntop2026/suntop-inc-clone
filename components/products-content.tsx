@@ -5,12 +5,19 @@ import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { staticProducts, categories } from "@/lib/static-data"
+import { SITE_LOGO } from "@/lib/products-data"
 import { ArrowLeft } from "lucide-react"
 
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=800"
+const FALLBACK_IMAGE = SITE_LOGO
 
 function ProductImage({ src, alt }: { src: string; alt: string }) {
   const [imgSrc, setImgSrc] = useState(src)
+  const [isFallback, setIsFallback] = useState(false)
+
+  const handleError = () => {
+    setImgSrc(FALLBACK_IMAGE)
+    setIsFallback(true)
+  }
 
   return (
     <img
@@ -18,8 +25,8 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       width={400}
       height={400}
-      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-      onError={() => setImgSrc(FALLBACK_IMAGE)}
+      className={`w-full h-full transition-transform duration-500 ${isFallback ? "object-contain bg-gray-100 p-4" : "object-cover group-hover:scale-110"}`}
+      onError={handleError}
       loading="lazy"
     />
   )
