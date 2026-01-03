@@ -8,131 +8,202 @@ import { siteConfig } from "@/config/site-config"
 
 const megaMenuData = {
   Apparel: [
-    { name: "T-Shirts", image: siteConfig.megaMenu.apparel.tshirts.url, alt: siteConfig.megaMenu.apparel.tshirts.alt },
-    { name: "Polos", image: siteConfig.megaMenu.apparel.polos.url, alt: siteConfig.megaMenu.apparel.polos.alt },
-    { name: "Hats", image: siteConfig.megaMenu.apparel.hats.url, alt: siteConfig.megaMenu.apparel.hats.alt },
-    { name: "Hoodies", image: siteConfig.megaMenu.apparel.hoodies.url, alt: siteConfig.megaMenu.apparel.hoodies.alt },
+    {
+      name: "T-Shirts",
+      image: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom t-shirts",
+    },
+    {
+      name: "Polos",
+      image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded polo shirts",
+    },
+    {
+      name: "Hats",
+      image: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom hats and caps",
+    },
+    {
+      name: "Hoodies",
+      image: "https://images.unsplash.com/photo-1556821840393-ed5832f48f18?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom branded hoodies",
+    },
   ],
   Drinkware: [
     {
       name: "Water Bottles",
-      image: siteConfig.megaMenu.drinkware.waterBottles.url,
-      alt: siteConfig.megaMenu.drinkware.waterBottles.alt,
+      image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded water bottles",
     },
-    { name: "Mugs", image: siteConfig.megaMenu.drinkware.mugs.url, alt: siteConfig.megaMenu.drinkware.mugs.alt },
+    {
+      name: "Mugs",
+      image: "https://images.unsplash.com/photo-1514228742587-6b4df1ef0f7d?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom coffee mugs",
+    },
     {
       name: "Tumblers",
-      image: siteConfig.megaMenu.drinkware.tumblers.url,
-      alt: siteConfig.megaMenu.drinkware.tumblers.alt,
+      image: "https://images.unsplash.com/photo-1577705998148-6bd4f3961bb2?auto=format&fit=crop&q=80&w=300",
+      alt: "Insulated tumblers",
     },
     {
       name: "Glassware",
-      image: siteConfig.megaMenu.drinkware.glassware.url,
-      alt: siteConfig.megaMenu.drinkware.glassware.alt,
+      image: "https://images.unsplash.com/photo-1481671703460-040cb8a2d909?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom glassware",
     },
   ],
   Tech: [
-    { name: "USB Drives", image: siteConfig.megaMenu.tech.usbDrives.url, alt: siteConfig.megaMenu.tech.usbDrives.alt },
+    {
+      name: "USB Drives",
+      image: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded USB drives",
+    },
     {
       name: "Power Banks",
-      image: siteConfig.megaMenu.tech.powerBanks.url,
-      alt: siteConfig.megaMenu.tech.powerBanks.alt,
+      image: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?auto=format&fit=crop&q=80&w=300",
+      alt: "Promotional power banks",
     },
     {
       name: "Headphones",
-      image: siteConfig.megaMenu.tech.headphones.url,
-      alt: siteConfig.megaMenu.tech.headphones.alt,
+      image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded headphones",
     },
     {
       name: "Phone Accessories",
-      image: siteConfig.megaMenu.tech.phoneAccessories.url,
-      alt: siteConfig.megaMenu.tech.phoneAccessories.alt,
+      image: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=300",
+      alt: "Phone accessories",
     },
   ],
   Office: [
-    { name: "Pens", image: siteConfig.megaMenu.office.pens.url, alt: siteConfig.megaMenu.office.pens.alt },
+    {
+      name: "Pens",
+      image: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?auto=format&fit=crop&q=80&w=300",
+      alt: "Promotional pens",
+    },
     {
       name: "Notebooks",
-      image: siteConfig.megaMenu.office.notebooks.url,
-      alt: siteConfig.megaMenu.office.notebooks.alt,
+      image: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom notebooks",
     },
     {
       name: "Desk Accessories",
-      image: siteConfig.megaMenu.office.deskAccessories.url,
-      alt: siteConfig.megaMenu.office.deskAccessories.alt,
+      image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=300",
+      alt: "Desk accessories",
     },
     {
       name: "Calendars",
-      image: siteConfig.megaMenu.office.calendars.url,
-      alt: siteConfig.megaMenu.office.calendars.alt,
+      image: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom calendars",
     },
   ],
   Bags: [
-    { name: "Tote Bags", image: siteConfig.megaMenu.bags.toteBags.url, alt: siteConfig.megaMenu.bags.toteBags.alt },
-    { name: "Backpacks", image: siteConfig.megaMenu.bags.backpacks.url, alt: siteConfig.megaMenu.bags.backpacks.alt },
+    {
+      name: "Tote Bags",
+      image: "https://images.unsplash.com/photo-1591561954557-26941169b49e?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom tote bags",
+    },
+    {
+      name: "Backpacks",
+      image: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded backpacks",
+    },
     {
       name: "Duffel Bags",
-      image: siteConfig.megaMenu.bags.duffelBags.url,
-      alt: siteConfig.megaMenu.bags.duffelBags.alt,
+      image: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom duffel bags",
     },
     {
       name: "Laptop Bags",
-      image: siteConfig.megaMenu.bags.laptopBags.url,
-      alt: siteConfig.megaMenu.bags.laptopBags.alt,
+      image: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?auto=format&fit=crop&q=80&w=300",
+      alt: "Laptop bags",
     },
   ],
   Wellness: [
     {
       name: "Yoga Mats",
-      image: siteConfig.megaMenu.wellness.yogaMats.url,
-      alt: siteConfig.megaMenu.wellness.yogaMats.alt,
+      image: "https://images.unsplash.com/photo-1544367567463-d25dfeac3438?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded yoga mats",
     },
     {
       name: "Fitness Bands",
-      image: siteConfig.megaMenu.wellness.fitnessBands.url,
-      alt: siteConfig.megaMenu.wellness.fitnessBands.alt,
+      image: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom fitness bands",
     },
     {
       name: "Stress Balls",
-      image: siteConfig.megaMenu.wellness.stressBalls.url,
-      alt: siteConfig.megaMenu.wellness.stressBalls.alt,
+      image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?auto=format&fit=crop&q=80&w=300",
+      alt: "Stress balls",
     },
     {
       name: "Hand Sanitizers",
-      image: siteConfig.megaMenu.wellness.handSanitizers.url,
-      alt: siteConfig.megaMenu.wellness.handSanitizers.alt,
+      image: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?auto=format&fit=crop&q=80&w=300",
+      alt: "Hand sanitizers",
     },
   ],
   "Home & Garden": [
     {
       name: "Blankets",
-      image: siteConfig.megaMenu.homeGarden.blankets.url,
-      alt: siteConfig.megaMenu.homeGarden.blankets.alt,
+      image: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom blankets",
     },
     {
       name: "Candles",
-      image: siteConfig.megaMenu.homeGarden.candles.url,
-      alt: siteConfig.megaMenu.homeGarden.candles.alt,
+      image: "https://images.unsplash.com/photo-1602874801006-a9b7e79a0c58?auto=format&fit=crop&q=80&w=300",
+      alt: "Promotional candles",
     },
     {
       name: "Coasters",
-      image: siteConfig.megaMenu.homeGarden.coasters.url,
-      alt: siteConfig.megaMenu.homeGarden.coasters.alt,
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded coasters",
     },
-    { name: "Tools", image: siteConfig.megaMenu.homeGarden.tools.url, alt: siteConfig.megaMenu.homeGarden.tools.alt },
+    {
+      name: "Tools",
+      image: "https://images.unsplash.com/photo-1426927308491-6380b6a9936f?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom tools",
+    },
   ],
   Other: [
-    { name: "Keychains", image: siteConfig.megaMenu.other.keychains.url, alt: siteConfig.megaMenu.other.keychains.alt },
-    { name: "Lanyards", image: siteConfig.megaMenu.other.lanyards.url, alt: siteConfig.megaMenu.other.lanyards.alt },
-    { name: "Badges", image: siteConfig.megaMenu.other.badges.url, alt: siteConfig.megaMenu.other.badges.alt },
-    { name: "Magnets", image: siteConfig.megaMenu.other.magnets.url, alt: siteConfig.megaMenu.other.magnets.alt },
+    {
+      name: "Keychains",
+      image: "https://images.unsplash.com/photo-1612817288484-6f916006741a?auto=format&fit=crop&q=80&w=300",
+      alt: "Promotional keychains",
+    },
+    {
+      name: "Lanyards",
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?auto=format&fit=crop&q=80&w=300",
+      alt: "Custom lanyards",
+    },
+    {
+      name: "Badges",
+      image: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?auto=format&fit=crop&q=80&w=300",
+      alt: "Branded badges",
+    },
+    {
+      name: "Magnets",
+      image: "https://images.unsplash.com/photo-1586380951230-e6703d9183cd?auto=format&fit=crop&q=80&w=300",
+      alt: "Promotional magnets",
+    },
   ],
 }
+
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=300"
 
 export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
+  const [imageErrors, setImageErrors] = useState<Set<string>>(new Set())
+
+  const handleImageError = (imageSrc: string) => {
+    setImageErrors((prev) => new Set(prev).add(imageSrc))
+  }
+
+  const getImageSrc = (imageSrc: string) => {
+    return imageErrors.has(imageSrc) ? FALLBACK_IMAGE : imageSrc
+  }
+
+  const getCategoryUrl = (category: string) => {
+    return `/products?category=${encodeURIComponent(category)}`
+  }
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg">
@@ -163,10 +234,13 @@ export function Navbar() {
                 onMouseEnter={() => setActiveMenu(category)}
                 onMouseLeave={() => setActiveMenu(null)}
               >
-                <button className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors">
+                <Link
+                  href={getCategoryUrl(category)}
+                  className="flex items-center gap-1 px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
+                >
                   {category}
                   <ChevronDown className="h-4 w-4" />
-                </button>
+                </Link>
 
                 {activeMenu === category && (
                   <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
@@ -175,16 +249,18 @@ export function Navbar() {
                         {megaMenuData[category as keyof typeof megaMenuData].map((item) => (
                           <Link
                             key={item.name}
-                            href="/products"
+                            href={getCategoryUrl(category)}
                             className="group flex flex-col items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors"
                           >
-                            <div className="w-full aspect-square rounded-lg overflow-hidden border border-border relative">
-                              <Image
-                                src={item.image || "/placeholder.svg"}
+                            <div className="w-[120px] h-[120px] rounded-lg overflow-hidden border border-border relative bg-muted">
+                              <img
+                                src={getImageSrc(item.image) || "/placeholder.svg"}
                                 alt={item.alt}
-                                fill
-                                className="object-cover group-hover:scale-110 transition-transform duration-300"
-                                sizes="150px"
+                                width={120}
+                                height={120}
+                                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                                onError={() => handleImageError(item.image)}
+                                loading="lazy"
                               />
                             </div>
                             <span className="text-xs font-medium text-center text-card-foreground">{item.name}</span>
@@ -192,7 +268,7 @@ export function Navbar() {
                         ))}
                       </div>
                       <Link
-                        href="/products"
+                        href={getCategoryUrl(category)}
                         className="block text-center text-sm font-semibold text-secondary hover:underline"
                       >
                         View All {category} →
@@ -237,13 +313,20 @@ export function Navbar() {
                     {megaMenuData[category as keyof typeof megaMenuData].map((item) => (
                       <Link
                         key={item.name}
-                        href="/products"
+                        href={getCategoryUrl(category)}
                         className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >
                         {item.name}
                       </Link>
                     ))}
+                    <Link
+                      href={getCategoryUrl(category)}
+                      className="block px-4 py-2 text-sm font-semibold text-secondary hover:bg-muted rounded-lg transition-colors"
+                      onClick={() => setMobileMenuOpen(false)}
+                    >
+                      View All {category} →
+                    </Link>
                   </div>
                 )}
               </div>

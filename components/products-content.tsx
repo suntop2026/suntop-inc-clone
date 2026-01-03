@@ -1,9 +1,11 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
+import { useSearchParams } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { staticProducts, categories } from "@/lib/static-data"
+import { ArrowLeft } from "lucide-react"
 
 const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=800"
 
@@ -26,29 +28,59 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
   )
 }
 
-export function ProductGrid() {
+export function ProductsContent() {
+  const searchParams = useSearchParams()
+  const categoryParam = searchParams.get("category")
+
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
 
+  useEffect(() => {
+    if (categoryParam) {
+      const matchedCategory = categories.find((cat) => cat.toLowerCase() === categoryParam.toLowerCase())
+      if (matchedCategory) {
+        setSelectedCategory(matchedCategory)
+      }
+    } else {
+      setSelectedCategory("All")
+    }
+  }, [categoryParam])
+
   const filteredProducts =
-    selectedCategory === "All"
-      ? staticProducts.slice(0, 8)
-      : staticProducts.filter((p) => p.category === selectedCategory).slice(0, 8)
+    selectedCategory === "All" ? staticProducts : staticProducts.filter((p) => p.category === selectedCategory)
+
+  const handleCategoryChange = (category: string) => {
+    setSelectedCategory(category)
+    const url = category === "All" ? "/products" : `/products?category=${encodeURIComponent(category)}`
+    window.history.pushState({}, "", url)
+  }
 
   return (
-    <section id="products" className="py-20 bg-background">
+    <main className="min-h-screen pt-24 pb-20">
       <div className="mx-auto max-w-7xl px-4">
+        <Link
+          href="/"
+          className="inline-flex items-center gap-2 text-muted-foreground hover:text-foreground mb-8 transition-colors"
+        >
+          <ArrowLeft className="h-4 w-4" />
+          Back to Home
+        </Link>
+
         <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">Popular Products</h2>
+          <h1 className="text-4xl md:text-5xl font-bold text-foreground mb-4 text-balance">
+            {selectedCategory === "All" ? "All Products" : selectedCategory}
+          </h1>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto text-pretty">
-            Browse our most requested promotional items, all customizable with your brand
+            {selectedCategory === "All"
+              ? `Explore our complete catalog of ${staticProducts.length}+ promotional products`
+              : `Browse our ${filteredProducts.length} ${selectedCategory.toLowerCase()} products`}
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        <div className="flex flex-wrap justify-center gap-2 mb-12">
           {categories.map((category) => (
             <button
               key={category}
-              onClick={() => setSelectedCategory(category)}
+              onClick={() => handleCategoryChange(category)}
               className={`px-4 py-2 rounded-full font-medium transition-all ${
                 selectedCategory === category
                   ? "bg-secondary text-secondary-foreground shadow-md"
@@ -56,6 +88,9 @@ export function ProductGrid() {
               }`}
             >
               {category}
+              {category !== "All" && (
+                <span className="ml-1 text-xs">({staticProducts.filter((p) => p.category === category).length})</span>
+              )}
             </button>
           ))}
         </div>
@@ -70,6 +105,7 @@ export function ProductGrid() {
                 <CardContent className="p-4">
                   <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
                   <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
+                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
                   <div className="space-y-1">
                     <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
                     <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
@@ -80,15 +116,21 @@ export function ProductGrid() {
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        {filteredProducts.length === 0 && (
+          <div className="text-center py-12">
+            <p className="text-muted-foreground text-lg">No products found in this category.</p>
+          </div>
+        )}
+
+        <div className="text-center mt-16">
           <Link
-            href="/products"
-            className="inline-block bg-primary text-primary-foreground px-8 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity text-lg"
+            href="#quote"
+            className="inline-block bg-secondary text-secondary-foreground px-10 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity text-lg"
           >
-            View All Products
+            Get a Custom Quote
           </Link>
         </div>
       </div>
-    </section>
+    </main>
   )
 }
