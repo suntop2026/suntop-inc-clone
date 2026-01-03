@@ -175,7 +175,7 @@ export function Navbar() {
                         {megaMenuData[category as keyof typeof megaMenuData].map((item) => (
                           <Link
                             key={item.name}
-                            href="#"
+                            href="/products"
                             className="group flex flex-col items-center gap-2 p-2 rounded-lg hover:bg-muted transition-colors"
                           >
                             <div className="w-full aspect-square rounded-lg overflow-hidden border border-border relative">
@@ -191,7 +191,10 @@ export function Navbar() {
                           </Link>
                         ))}
                       </div>
-                      <Link href="#" className="block text-center text-sm font-semibold text-secondary hover:underline">
+                      <Link
+                        href="/products"
+                        className="block text-center text-sm font-semibold text-secondary hover:underline"
+                      >
                         View All {category} →
                       </Link>
                     </div>
@@ -234,7 +237,7 @@ export function Navbar() {
                     {megaMenuData[category as keyof typeof megaMenuData].map((item) => (
                       <Link
                         key={item.name}
-                        href="#"
+                        href="/products"
                         className="block px-4 py-2 text-sm text-muted-foreground hover:text-foreground hover:bg-muted rounded-lg transition-colors"
                         onClick={() => setMobileMenuOpen(false)}
                       >

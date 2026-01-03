@@ -135,7 +135,7 @@ export const siteConfig = {
         alt: "Branded desk accessories",
       },
       calendars: {
-        url: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1506784983877-4f3045e1b639?w=300&h=300&fit=crop",
         alt: "Custom calendars",
       },
     },
@@ -199,7 +199,7 @@ export const siteConfig = {
         alt: "Promotional keychains",
       },
       lanyards: {
-        url: "https://images.unsplash.com/photo-1591696205602-2f950c417cb9?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1591696205602-40aa08e4b326?w=300&h=300&fit=crop",
         alt: "Custom lanyards",
       },
       badges: {
