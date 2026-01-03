@@ -15,7 +15,7 @@ const megaMenuData = {
     },
     {
       name: "Polos",
-      image: "https://images.unsplash.com/photo-1586363104862-3a5e2ab60d99?auto=format&fit=crop&q=80&w=300",
+      image: "https://images.unsplash.com/photo-1625910513413-5fc44e20ff76?auto=format&fit=crop&q=80&w=300",
       alt: "Branded polo shirts",
     },
     {
@@ -37,12 +37,12 @@ const megaMenuData = {
     },
     {
       name: "Mugs",
-      image: "https://images.unsplash.com/photo-1514228742587-6b4df1ef0f7d?auto=format&fit=crop&q=80&w=300",
+      image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=300",
       alt: "Custom coffee mugs",
     },
     {
       name: "Tumblers",
-      image: "https://images.unsplash.com/photo-1577705998148-6bd4f3961bb2?auto=format&fit=crop&q=80&w=300",
+      image: "https://images.unsplash.com/photo-1610889556528-9a770e32642f?auto=format&fit=crop&q=80&w=300",
       alt: "Insulated tumblers",
     },
     {
@@ -185,7 +185,7 @@ const megaMenuData = {
   ],
 }
 
-const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=300"
+const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393469-a586c61ea9bc?auto=format&fit=crop&q=80&w=300"
 
 export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)

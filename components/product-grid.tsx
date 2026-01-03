@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { staticProducts, categories } from "@/lib/static-data"
@@ -10,19 +10,39 @@ const FALLBACK_IMAGE = "https://images.unsplash.com/photo-1560393464-5c69a73c577
 function ProductImage({ src, alt }: { src: string; alt: string }) {
   const [imgSrc, setImgSrc] = useState(src)
   const [hasError, setHasError] = useState(false)
+  const [isLoading, setIsLoading] = useState(true)
+
+  useEffect(() => {
+    setImgSrc(src)
+    setHasError(false)
+    setIsLoading(true)
+  }, [src])
 
   return (
-    <img
-      src={hasError ? FALLBACK_IMAGE : imgSrc}
-      alt={alt}
-      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-      onError={() => {
-        if (!hasError) {
-          setHasError(true)
-          setImgSrc(FALLBACK_IMAGE)
-        }
-      }}
-    />
+    <div className="relative w-full h-full">
+      {isLoading && (
+        <div className="absolute inset-0 bg-muted animate-pulse flex items-center justify-center">
+          <span className="text-muted-foreground text-sm">Loading...</span>
+        </div>
+      )}
+      <img
+        src={hasError ? FALLBACK_IMAGE : imgSrc}
+        alt={alt}
+        className={`w-full h-full object-cover group-hover:scale-110 transition-transform duration-500 ${isLoading ? "opacity-0" : "opacity-100"}`}
+        onLoad={() => {
+          setIsLoading(false)
+          console.log("[v0] Image loaded successfully:", imgSrc)
+        }}
+        onError={() => {
+          console.log("[v0] Image failed to load:", imgSrc)
+          if (!hasError) {
+            setHasError(true)
+            setImgSrc(FALLBACK_IMAGE)
+          }
+          setIsLoading(false)
+        }}
+      />
+    </div>
   )
 }
 
@@ -33,6 +53,13 @@ export function ProductGrid() {
     selectedCategory === "All"
       ? staticProducts.slice(0, 8)
       : staticProducts.filter((p) => p.category === selectedCategory).slice(0, 8)
+
+  useEffect(() => {
+    console.log(
+      "[v0] ProductGrid mounted, products:",
+      filteredProducts.map((p) => ({ name: p.name, image: p.image })),
+    )
+  }, [filteredProducts])
 
   return (
     <section id="products" className="py-20 bg-background">
