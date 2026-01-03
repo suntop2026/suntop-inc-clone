@@ -1,7 +1,10 @@
 "use client"
 
+import type React from "react"
+
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/navigation"
 import { Card, CardContent } from "@/components/ui/card"
 import { staticProducts, categories } from "@/lib/static-data"
 import { SITE_LOGO } from "@/lib/products-data"
@@ -31,12 +34,19 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
 }
 
 export function ProductGrid() {
+  const router = useRouter()
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
 
   const filteredProducts =
     selectedCategory === "All"
       ? staticProducts.slice(0, 8)
       : staticProducts.filter((p) => p.category === selectedCategory).slice(0, 8)
+
+  const handleAddToQuote = (e: React.MouseEvent, productName: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+    router.push(`/quote?product=${encodeURIComponent(productName)}`)
+  }
 
   return (
     <section id="products" className="py-20 bg-background">
@@ -66,21 +76,29 @@ export function ProductGrid() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
-            <Link key={product.id} href={`/products/${product.slug}`} className="group">
-              <Card className="overflow-hidden border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl h-full">
-                <div className="aspect-square overflow-hidden bg-muted relative">
-                  <ProductImage src={product.image} alt={product.imageAlt} />
-                </div>
-                <CardContent className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
-                  <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
-                  <div className="space-y-1">
-                    <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
-                    <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
+            <div key={product.id} className="group flex flex-col">
+              <Link href={`/products/${product.slug}`} className="flex-1">
+                <Card className="overflow-hidden border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl h-full">
+                  <div className="aspect-square overflow-hidden bg-muted relative">
+                    <ProductImage src={product.image} alt={product.imageAlt} />
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
+                  <CardContent className="p-4 flex flex-col flex-1">
+                    <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
+                    <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
+                    <div className="space-y-1 flex-1">
+                      <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
+                      <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <button
+                onClick={(e) => handleAddToQuote(e, product.name)}
+                className="mt-4 w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
+              >
+                Add to Quote
+              </button>
+            </div>
           ))}
         </div>
 

@@ -1,7 +1,10 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 import { useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { staticProducts, categories } from "@/lib/static-data"
@@ -34,6 +37,7 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
 
 export function ProductsContent() {
   const searchParams = useSearchParams()
+  const router = useRouter()
   const categoryParam = searchParams.get("category")
 
   const [selectedCategory, setSelectedCategory] = useState<string>("All")
@@ -56,6 +60,12 @@ export function ProductsContent() {
     setSelectedCategory(category)
     const url = category === "All" ? "/products" : `/products?category=${encodeURIComponent(category)}`
     window.history.pushState({}, "", url)
+  }
+
+  const handleAddToQuote = (e: React.MouseEvent, productName: string) => {
+    e.preventDefault()
+    e.stopPropagation()
+    router.push(`/quote?product=${encodeURIComponent(productName)}`)
   }
 
   return (
@@ -101,22 +111,30 @@ export function ProductsContent() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {filteredProducts.map((product) => (
-            <Link key={product.id} href={`/products/${product.slug}`} className="group">
-              <Card className="overflow-hidden border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl h-full">
-                <div className="aspect-square overflow-hidden bg-muted relative">
-                  <ProductImage src={product.image} alt={product.imageAlt} />
-                </div>
-                <CardContent className="p-4">
-                  <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
-                  <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
-                  <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
-                  <div className="space-y-1">
-                    <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
-                    <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
+            <div key={product.id} className="group flex flex-col">
+              <Link href={`/products/${product.slug}`} className="flex-1">
+                <Card className="overflow-hidden border-2 hover:border-secondary transition-all duration-300 hover:shadow-xl h-full">
+                  <div className="aspect-square overflow-hidden bg-muted relative">
+                    <ProductImage src={product.image} alt={product.imageAlt} />
                   </div>
-                </CardContent>
-              </Card>
-            </Link>
+                  <CardContent className="p-4 flex flex-col flex-1">
+                    <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
+                    <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
+                    <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
+                    <div className="space-y-1 flex-1">
+                      <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
+                      <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
+                    </div>
+                  </CardContent>
+                </Card>
+              </Link>
+              <button
+                onClick={(e) => handleAddToQuote(e, product.name)}
+                className="mt-4 w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
+              >
+                Add to Quote
+              </button>
+            </div>
           ))}
         </div>
 
@@ -128,7 +146,7 @@ export function ProductsContent() {
 
         <div className="text-center mt-16">
           <Link
-            href="#quote"
+            href="/quote"
             className="inline-block bg-secondary text-secondary-foreground px-10 py-4 rounded-lg font-semibold hover:opacity-90 transition-opacity text-lg"
           >
             Get a Custom Quote
