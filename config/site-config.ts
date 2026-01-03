@@ -10,16 +10,16 @@ export const siteConfig = {
   // Hero Section
   hero: {
     background: {
-      url: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=1920&h=1080&fit=crop",
+      url: "https://images.unsplash.com/photo-1567427042503-b09a473f0896?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Modern manufacturing facility background",
     },
     productShowcase: {
       tshirts: {
-        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=600&fit=crop",
+        url: "https://images.unsplash.com/photo-1621609756070-6515c54c3e87?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom branded t-shirts",
       },
       mugs: {
-        url: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=400&h=400&fit=crop",
+        url: "https://images.unsplash.com/photo-1563209866-9e1e2d26f030?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom coffee mugs with logo",
       },
       tech: {
@@ -69,33 +69,33 @@ export const siteConfig = {
   megaMenu: {
     apparel: {
       tshirts: {
-        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1621609756070-6515c54c3e87?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom t-shirts for corporate branding",
       },
       polos: {
-        url: "https://images.unsplash.com/photo-1626497764746-6dc36546d24d?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1590412497465-ce18451159b3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Branded polo shirts",
       },
       hats: {
-        url: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1520638023773-1081a2886f44?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom hats and caps",
       },
       hoodies: {
-        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1548171784-06d9a2a7a4f9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom branded hoodies",
       },
     },
     drinkware: {
       waterBottles: {
-        url: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1623861214777-a8a4f9e1f5e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Branded water bottles",
       },
       mugs: {
-        url: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1563209866-9e1e2d26f030?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Custom coffee mugs",
       },
       tumblers: {
-        url: "https://images.unsplash.com/photo-1609801438967-6a5a2f0fef62?w=300&h=300&fit=crop",
+        url: "https://images.unsplash.com/photo-1582294622151-50e82c502b41?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
         alt: "Insulated tumblers with logo",
       },
       glassware: {
@@ -216,15 +216,15 @@ export const siteConfig = {
   // Factory Section
   factory: {
     manufacturing: {
-      url: "https://images.unsplash.com/photo-1565793298595-6a879b1d9492?w=800&h=600&fit=crop",
+      url: "https://images.unsplash.com/photo-1567427042503-b09a473f0896?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "State-of-the-art manufacturing facility with modern equipment",
     },
     delivery: {
-      url: "https://images.unsplash.com/photo-1566576721346-d4a3b4eaeb55?w=800&h=600&fit=crop",
+      url: "https://images.unsplash.com/photo-1526487532386-21a4f0099516?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Fast delivery and logistics operations",
     },
     quality: {
-      url: "https://images.unsplash.com/photo-1581092160562-40aa08e78837?w=800&h=600&fit=crop",
+      url: "https://images.unsplash.com/photo-1506126613408-eca07ce68773?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "Quality control and ISO certification processes",
     },
   },
@@ -233,32 +233,32 @@ export const siteConfig = {
   trustedBy: [
     {
       name: "TechCorp",
-      url: "https://images.unsplash.com/photo-1599305445671-ac291c95aaa9?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "TechCorp logo",
     },
     {
       name: "GlobalBrand",
-      url: "https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "GlobalBrand logo",
     },
     {
       name: "InnovateCo",
-      url: "https://images.unsplash.com/photo-1614624532983-4ce03382d63d?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "InnovateCo logo",
     },
     {
       name: "NextGen",
-      url: "https://images.unsplash.com/photo-1635405074683-96d6921a2a68?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "NextGen logo",
     },
     {
       name: "FutureGroup",
-      url: "https://images.unsplash.com/photo-1609921212029-bb5a28e60960?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "FutureGroup logo",
     },
     {
       name: "PrimeSolutions",
-      url: "https://images.unsplash.com/photo-1620288627223-53302f4e8c74?w=200&h=80&fit=crop",
+      url: "https://images.unsplash.com/photo-1616400619175-5be329279ce0?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
       alt: "PrimeSolutions logo",
     },
   ],

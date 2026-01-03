@@ -17,7 +17,8 @@ export const staticProducts: Product[] = [
     category: "Apparel",
     price: 4.99,
     moq: 50,
-    image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1621609756070-6515c54c3e87?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Custom printed t-shirts for corporate branding and promotional events",
     description: "High-quality cotton t-shirts with custom screen printing or embroidery",
     slug: "custom-tshirts",
@@ -28,7 +29,8 @@ export const staticProducts: Product[] = [
     category: "Apparel",
     price: 8.99,
     moq: 50,
-    image: "https://images.unsplash.com/photo-1586790170083-2f9ceadc732d?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1590412497465-ce18451159b3?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Professional polo shirts with embroidered logo",
     description: "Premium cotton polo shirts perfect for corporate uniforms",
     slug: "polo-shirts",
@@ -39,7 +41,8 @@ export const staticProducts: Product[] = [
     category: "Apparel",
     price: 7.99,
     moq: 50,
-    image: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1520638023773-1081a2886f44?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Custom baseball caps and promotional hats",
     description: "Adjustable baseball caps with embroidered or printed logos",
     slug: "baseball-caps",
@@ -50,7 +53,8 @@ export const staticProducts: Product[] = [
     category: "Apparel",
     price: 18.99,
     moq: 25,
-    image: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1548171784-06d9a2a7a4f9?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Custom printed hoodies and sweatshirts",
     description: "Comfortable fleece hoodies with custom branding",
     slug: "hoodies",
@@ -61,7 +65,8 @@ export const staticProducts: Product[] = [
     category: "Drinkware",
     price: 3.49,
     moq: 100,
-    image: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1563209866-9e1e2d26f030?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Custom coffee mugs with company logo printing",
     description: "Ceramic coffee mugs with vibrant full-color printing",
     slug: "coffee-mugs",
@@ -72,7 +77,8 @@ export const staticProducts: Product[] = [
     category: "Drinkware",
     price: 5.99,
     moq: 100,
-    image: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1623861214777-a8a4f9e1f5e2?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Branded stainless steel water bottles for corporate gifts",
     description: "Insulated stainless steel bottles that keep drinks cold for 24 hours",
     slug: "water-bottles",
@@ -83,7 +89,8 @@ export const staticProducts: Product[] = [
     category: "Drinkware",
     price: 8.99,
     moq: 50,
-    image: "https://images.unsplash.com/photo-1591856419581-70146e6f00b6?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1582294622151-50e82c502b41?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Insulated travel tumblers with custom logo",
     description: "Double-wall vacuum insulated tumblers for hot or cold beverages",
     slug: "travel-tumblers",
@@ -127,7 +134,8 @@ export const staticProducts: Product[] = [
     category: "Tech",
     price: 15.99,
     moq: 50,
-    image: "https://images.unsplash.com/photo-1591552899932-c2c1b8a5e546?w=800&h=800&fit=crop&q=80",
+    image:
+      "https://images.unsplash.com/photo-1591552899932-c2c1b8a5e546?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
     imageAlt: "Wireless charging pads with custom branding",
     description: "Qi-compatible wireless charging pads for smartphones",
     slug: "wireless-chargers",
