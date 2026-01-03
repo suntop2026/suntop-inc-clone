@@ -77,8 +77,9 @@ export function Navbar() {
                                 onError={(e) => {
                                   const target = e.target as HTMLImageElement
                                   target.src = item.fallback || SITE_LOGO
-                                  target.className =
-                                    "w-full h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                                  target.style.objectFit = "contain"
+                                  target.style.backgroundColor = "rgb(243, 244, 246)"
+                                  target.style.padding = "1rem"
                                 }}
                                 loading="lazy"
                               />

@@ -28,7 +28,13 @@ function ProductImage({ src, alt }: { src: string; alt: string }) {
       alt={alt}
       width={400}
       height={400}
-      className={`w-full h-full transition-transform duration-500 ${isFallback ? "object-contain bg-gray-100 p-4" : "object-cover group-hover:scale-110"}`}
+      className="w-full h-full transition-transform duration-500"
+      style={{
+        objectFit: isFallback ? "contain" : "cover",
+        backgroundColor: isFallback ? "rgb(243, 244, 246)" : "transparent",
+        padding: isFallback ? "1rem" : "0",
+        transform: !isFallback ? "scale(1)" : "scale(1)",
+      }}
       onError={handleError}
       loading="lazy"
     />

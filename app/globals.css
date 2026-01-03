@@ -128,7 +128,9 @@
   }
 }
 
-/* Added smooth scroll and custom animations */
+/* Removed problematic .fallback-image CSS class and moved styling to inline in components */
+
+/* Smooth scroll and custom animations */
 @keyframes slow-zoom {
   0%,
   100% {
