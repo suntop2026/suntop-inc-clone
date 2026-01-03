@@ -1,4 +1,32 @@
 import { NextResponse } from "next/server"
+import { readFileSync } from "fs"
+import { join } from "path"
+
+interface Product {
+  id: string
+  name: string
+  category: string
+  subcategory: string
+  description: string
+  price: number
+  moq: number
+  image: string
+  imageAlt: string
+  slug: string
+  features?: string[]
+  materials?: string[]
+  colors?: string[]
+  customization?: string[]
+  sustainability?: {
+    is_eco_friendly: boolean
+    certifications: string[]
+    recycled_content: string
+  }
+  tags?: string[]
+  trending?: boolean
+  new2026?: boolean
+  productionTime?: string
+}
 
 interface AirtableRecord {
   id: string
@@ -43,7 +71,26 @@ const categoryFallbacks: Record<string, string> = {
   Other: "https://images.unsplash.com/photo-1526178613552-2b45c6c302f0?w=600&h=600&fit=crop",
 }
 
-export async function GET() {
+/**
+ * Load products from JSON file
+ */
+function loadProductsFromJSON(): Product[] {
+  try {
+    const filePath = join(process.cwd(), "data", "products.json")
+    const fileContent = readFileSync(filePath, "utf-8")
+    const products: Product[] = JSON.parse(fileContent)
+    console.log("[v0] Loaded", products.length, "products from JSON file")
+    return products
+  } catch (error) {
+    console.error("[v0] Error loading products from JSON:", error)
+    return []
+  }
+}
+
+/**
+ * Fetch products from Airtable (legacy support)
+ */
+async function fetchProductsFromAirtable(): Promise<Product[]> {
   const baseId = process.env.AIRTABLE_BASE_ID
   const token = process.env.AIRTABLE_TOKEN || process.env.AIRTABLE_API_KEY
 
@@ -51,15 +98,8 @@ export async function GET() {
   console.log("[v0] API Route - TOKEN configured:", !!token)
 
   if (!baseId || !token) {
-    console.error("[v0] API Route - Missing environment variables")
-    return NextResponse.json(
-      {
-        error: "Airtable not configured",
-        message: "Please add AIRTABLE_BASE_ID and AIRTABLE_TOKEN in the Vars section",
-        products: [],
-      },
-      { status: 200 },
-    )
+    console.log("[v0] Airtable not configured, will use JSON fallback")
+    return []
   }
 
   try {
@@ -82,7 +122,7 @@ export async function GET() {
     }
 
     const data: AirtableResponse = await response.json()
-    console.log("[v0] API Route - Received", data.records?.length || 0, "records")
+    console.log("[v0] API Route - Received", data.records?.length || 0, "records from Airtable")
 
     const products = data.records.map((record) => {
       const fields = record.fields
@@ -96,16 +136,12 @@ export async function GET() {
         if (attachment && attachment.url) {
           imageUrl = attachment.url
           console.log("[v0] API Route - Found image for", name, ":", imageUrl.substring(0, 50) + "...")
-        } else {
-          console.log("[v0] API Route - No valid image URL for", name, ", using fallback")
         }
-      } else {
-        console.log("[v0] API Route - No image attachment for", name, ", using category fallback")
       }
 
       // Generate slug from name if not provided
       const slug = fields.Slug || generateSlug(name)
-      
+
       // Use provided description or generate default
       const description = fields.Description || `${name} - Custom promotional product for ${category.toLowerCase()} category`
 
@@ -113,6 +149,7 @@ export async function GET() {
         id: record.id,
         name,
         category,
+        subcategory: category,
         price: fields.Price ?? 0,
         moq: fields.MOQ ?? 50,
         image: imageUrl,
@@ -122,7 +159,41 @@ export async function GET() {
       }
     })
 
-    console.log("[v0] API Route - Successfully processed", products.length, "products")
+    console.log("[v0] API Route - Successfully processed", products.length, "products from Airtable")
+    return products
+  } catch (error) {
+    console.error("[v0] API Route - Airtable Error:", error)
+    return []
+  }
+}
+
+export async function GET() {
+  try {
+    // First, load products from JSON file (our 210 new products)
+    const jsonProducts = loadProductsFromJSON()
+
+    // Then, try to load products from Airtable (existing products, if configured)
+    const airtableProducts = await fetchProductsFromAirtable()
+
+    // Combine: JSON products first (new products appear first), then Airtable products
+    const allProducts = [...jsonProducts, ...airtableProducts]
+
+    console.log("[v0] Total products:", allProducts.length)
+    console.log("[v0] - From JSON:", jsonProducts.length)
+    console.log("[v0] - From Airtable:", airtableProducts.length)
+
+    // Transform to match expected format
+    const products = allProducts.map((product) => ({
+      id: product.id,
+      name: product.name,
+      category: product.category,
+      price: product.price,
+      moq: product.moq,
+      image: product.image,
+      imageAlt: product.imageAlt,
+      description: product.description,
+      slug: product.slug,
+    }))
 
     return NextResponse.json({ products })
   } catch (error) {
