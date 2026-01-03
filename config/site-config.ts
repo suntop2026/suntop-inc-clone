@@ -1,7 +1,9 @@
 export const siteConfig = {
   // Logo
   logo: {
-    url: "https://airtable.com/appTV774SN7jPs2Nv/tblDElyKQQLFoDb8j/viwcj24KGrxVBvrgq/rec5Be4QIRdZFr0Pm/fldhZGCckSh9iaQjP?copyLinkToCellOrRecordOrigin=gridView?w=200&h=200&fit=crop",
+    url: "/logo.png",
+    width: 200,
+    height: 200,
     alt: "SUNTOP INC Logo - Premium Custom Promotional Products Factory",
   },
 
