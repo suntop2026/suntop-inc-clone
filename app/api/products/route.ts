@@ -7,6 +7,8 @@ interface AirtableRecord {
     Category?: string
     Price?: number
     MOQ?: number
+    Description?: string
+    Slug?: string
     Image?: Array<{
       url: string
       filename: string
@@ -16,6 +18,18 @@ interface AirtableRecord {
 
 interface AirtableResponse {
   records: AirtableRecord[]
+}
+
+/**
+ * Generate a URL-friendly slug from a product name
+ */
+function generateSlug(name: string): string {
+  return name
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, "") // Remove special characters
+    .replace(/\s+/g, "-") // Replace spaces with hyphens
+    .replace(/-+/g, "-") // Replace multiple hyphens with single hyphen
 }
 
 const categoryFallbacks: Record<string, string> = {
@@ -73,6 +87,7 @@ export async function GET() {
     const products = data.records.map((record) => {
       const fields = record.fields
       const category = fields.Category || "Other"
+      const name = fields.Name || "Unnamed Product"
 
       let imageUrl = categoryFallbacks[category] || categoryFallbacks.Other
 
@@ -80,22 +95,30 @@ export async function GET() {
         const attachment = fields.Image[0]
         if (attachment && attachment.url) {
           imageUrl = attachment.url
-          console.log("[v0] API Route - Found image for", fields.Name, ":", imageUrl.substring(0, 50) + "...")
+          console.log("[v0] API Route - Found image for", name, ":", imageUrl.substring(0, 50) + "...")
         } else {
-          console.log("[v0] API Route - No valid image URL for", fields.Name, ", using fallback")
+          console.log("[v0] API Route - No valid image URL for", name, ", using fallback")
         }
       } else {
-        console.log("[v0] API Route - No image attachment for", fields.Name, ", using category fallback")
+        console.log("[v0] API Route - No image attachment for", name, ", using category fallback")
       }
+
+      // Generate slug from name if not provided
+      const slug = fields.Slug || generateSlug(name)
+      
+      // Use provided description or generate default
+      const description = fields.Description || `${name} - Custom promotional product for ${category.toLowerCase()} category`
 
       return {
         id: record.id,
-        name: fields.Name || "Unnamed Product",
-        category: category,
-        price: fields.Price || 0,
-        moq: fields.MOQ || 0,
+        name,
+        category,
+        price: fields.Price ?? 0,
+        moq: fields.MOQ ?? 50,
         image: imageUrl,
-        imageAlt: `${fields.Name || "Product"} - Custom promotional product`,
+        imageAlt: `${name} - Custom promotional product`,
+        description,
+        slug,
       }
     })
 

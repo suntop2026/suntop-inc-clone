@@ -1,34 +1,8 @@
 "use server"
 
-import type { Product } from "@/lib/airtable"
-
-interface AirtableProduct {
-  id: string
-  fields: {
-    Name: string
-    Category: string
-    Image?: Array<{
-      id: string
-      url: string
-      filename: string
-      size: number
-      type: string
-      thumbnails?: {
-        small?: { url: string; width: number; height: number }
-        large?: { url: string; width: number; height: number }
-        full?: { url: string; width: number; height: number }
-      }
-    }>
-    MOQ?: number
-    Price?: number
-  }
-  createdTime: string
-}
-
-interface AirtableResponse {
-  records: AirtableProduct[]
-  offset?: string
-}
+import type { Product } from "@/lib/static-data"
+import type { AirtableProduct, AirtableResponse } from "@/lib/airtable"
+import { convertAirtableToProduct } from "@/lib/airtable"
 
 /**
  * Server action to fetch products from Airtable
@@ -71,24 +45,8 @@ export async function getProducts(): Promise<Product[]> {
 
     const data: AirtableResponse = await response.json()
 
-    // Transform Airtable records to Product format
-    const products: Product[] = data.records.map((record) => {
-      // Extract image URL from Airtable's nested attachment structure
-      const imageUrl =
-        record.fields.Image && record.fields.Image.length > 0
-          ? record.fields.Image[0].url // Get the first attachment's URL
-          : "/placeholder.svg?height=400&width=400" // Fallback placeholder
-
-      return {
-        id: record.id,
-        name: record.fields.Name || "Untitled Product",
-        category: record.fields.Category || "Other",
-        image: imageUrl,
-        imageAlt: `${record.fields.Name || "Product"} - Custom promotional item`,
-        moq: record.fields.MOQ || null,
-        price: record.fields.Price || null,
-      }
-    })
+    // Transform Airtable records to Product format using the conversion function
+    const products: Product[] = data.records.map((record) => convertAirtableToProduct(record))
 
     return products
   } catch (error) {
