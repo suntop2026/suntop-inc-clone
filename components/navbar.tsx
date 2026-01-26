@@ -101,13 +101,21 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop CTA Button */}
-          <Link
-            href="/quote"
-            className="hidden lg:block bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
-          >
-            Get a Quote
-          </Link>
+          {/* Desktop Menu - Contact & Quote */}
+          <div className="hidden lg:flex items-center gap-3">
+            <Link
+              href="/contact"
+              className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/quote"
+              className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
+            >
+              Get a Quote
+            </Link>
+          </div>
 
           <button className="lg:hidden text-primary-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
@@ -154,8 +162,15 @@ export function Navbar() {
               </div>
             ))}
             <Link
+              href="/contact"
+              className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+            <Link
               href="/quote"
-              className="block w-full bg-secondary text-secondary-foreground text-center px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-4"
+              className="block w-full bg-secondary text-secondary-foreground text-center px-6 py-3 rounded-lg font-semibold hover:opacity-90 transition-opacity mt-2"
               onClick={() => setMobileMenuOpen(false)}
             >
               Get a Quote
