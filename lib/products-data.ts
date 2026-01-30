@@ -15,215 +15,252 @@ export interface CategoryNavData {
   [key: string]: NavItem[]
 }
 
+// New Core Categories based on Excel data mapping
+export const CATEGORIES = [
+  "Writing Instruments",
+  "Bags & Totes",
+  "Drinkware",
+  "Tech Accessories",
+  "Office & Stationery",
+  "Apparel",
+  "Health & Wellness",
+  "Promotional Gifts",
+  "Other"
+]
+
 export const NAV_DATA: CategoryNavData = {
-  Apparel: [
+  "Writing Instruments": [
     {
-      name: "T-Shirts",
-      image: "/products/apparel-1.jpg", // Corrected to lowercase
+      name: "Gel Ink Pens",
+      image: "/products/new/stvrt-001_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom printed t-shirts for corporate branding",
+      alt: "Acrylic Logo Patch ABS Gel Ink Pen",
     },
     {
-      name: "Hoodies",
-      image: "/products/apparel-2.jpg", // Corrected to lowercase
+      name: "Ballpoint Pens",
+      image: "/products/new/stvrt-010_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom branded hoodies",
+      alt: "Metal Ballpoint Pen with Stylus",
     },
     {
-      name: "Jackets",
-      image: "/products/apparel-3.jpg", // Corrected to lowercase
+      name: "Pencils",
+      image: "/products/new/stvrt-015_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded jackets and outerwear",
+      alt: "Eco-Friendly Wooden Pencil Set",
     },
     {
-      name: "Caps",
-      image: "/products/apparel-4.jpg", // Corrected to lowercase
+      name: "Highlighters",
+      image: "/products/new/stvrt-020_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom caps and hats",
+      alt: "Custom Logo Highlighter Set",
+    },
+  ],
+  "Bags & Totes": [
+    {
+      name: "Canvas Totes",
+      image: "/products/new/stvrt-002_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Poly Cotton Canvas Convertible Ribbon Tie Tote Bag",
+    },
+    {
+      name: "Backpacks",
+      image: "/products/new/stvrt-025_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Laptop Backpack with USB Charging Port",
+    },
+    {
+      name: "Drawstring Bags",
+      image: "/products/new/stvrt-030_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Recycled PET Drawstring Bag",
+    },
+    {
+      name: "Cooler Bags",
+      image: "/products/new/stvrt-035_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Insulated Lunch Cooler Bag",
     },
   ],
   Drinkware: [
     {
-      name: "Mugs",
-      image: "/products/drinkware-1.jpg", // Corrected to lowercase
+      name: "Insulated Bottles",
+      image: "/products/new/stvrt-040_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom coffee mugs",
+      alt: "Stainless Steel Vacuum Insulated Water Bottle",
     },
     {
-      name: "Tumblers",
-      image: "/products/drinkware-2.jpg", // Corrected to lowercase
+      name: "Ceramic Mugs",
+      image: "/products/new/stvrt-045_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Insulated travel tumblers",
+      alt: "Matte Finish Ceramic Coffee Mug",
     },
     {
-      name: "Water Bottles",
-      image: "/products/drinkware-3.jpg", // Corrected to lowercase
+      name: "Travel Tumblers",
+      image: "/products/new/stvrt-050_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded water bottles",
+      alt: "Double Wall Travel Tumbler",
     },
     {
       name: "Glassware",
-      image: "/products/drinkware-4.jpg", // Corrected to lowercase
+      image: "/products/new/stvrt-055_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom glassware",
+      alt: "Custom Etched Glassware Set",
     },
   ],
-  Tech: [
+  "Tech Accessories": [
     {
       name: "Power Banks",
-      image: "/products/tech-1.jpg", // Corrected to lowercase
+      image: "/products/new/stvrt-060_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Promotional power banks",
+      alt: "Slim Power Bank with Wireless Charging",
     },
     {
-      name: "Chargers",
-      image: "/products/tech-2.jpg", // Corrected to lowercase
+      name: "USB Drives",
+      image: "/products/new/stvrt-065_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom USB chargers",
+      alt: "Custom Shape USB Flash Drive",
     },
     {
       name: "Speakers",
-      image: "/products/tech-3.jpg", // Corrected to lowercase
+      image: "/products/new/stvrt-070_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Bluetooth speakers",
+      alt: "Portable Bluetooth Speaker",
     },
     {
-      name: "Cables",
-      image: "/products/tech-4.jpg", // Corrected to lowercase
+      name: "Chargers",
+      image: "/products/new/stvrt-075_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom branded cables",
+      alt: "Multi-Port Wall Charger",
     },
   ],
-  Office: [
+  "Office & Stationery": [
     {
       name: "Notebooks",
-      image: "/products/office-1.jpg", // Corrected to lowercase
+      image: "/products/new/stvrt-080_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom branded notebooks",
+      alt: "Hardcover Journal with Elastic Closure",
     },
     {
-      name: "Pens",
-      image: "/products/office-2.jpg", // Corrected to lowercase
+      name: "Sticky Notes",
+      image: "/products/new/stvrt-085_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Promotional pens",
+      alt: "Custom Printed Sticky Note Pad",
     },
     {
-      name: "Desk Mats",
-      image: "/products/office-3.jpg", // Corrected to lowercase
+      name: "Desk Organizers",
+      image: "/products/new/stvrt-090_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom desk mats",
+      alt: "Bamboo Desk Organizer",
     },
     {
-      name: "Planners",
-      image: "/products/office-4.jpg", // Corrected to lowercase
+      name: "Folders",
+      image: "/products/new/stvrt-095_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded planners and organizers",
-    },
-  ],
-  Bags: [
-    {
-      name: "Canvas Totes",
-      image: "/products/bags-1.jpg", // Corrected to lowercase
-      fallback: SITE_LOGO,
-      alt: "Custom tote bags",
-    },
-    {
-      name: "Backpacks",
-      image: "/products/bags-2.jpg", // Corrected to lowercase
-      fallback: SITE_LOGO,
-      alt: "Branded backpacks",
-    },
-    {
-      name: "Laptop Sleeves",
-      image: "/products/bags-3.jpg", // Corrected to lowercase
-      fallback: SITE_LOGO,
-      alt: "Laptop sleeves",
-    },
-    {
-      name: "Duffel Bags",
-      image: "/products/bags-4.jpg", // Corrected to lowercase
-      fallback: SITE_LOGO,
-      alt: "Duffel bags",
+      alt: "Recycled Material Presentation Folder",
     },
   ],
-  Wellness: [
+  Apparel: [
     {
-      name: "Yoga Mats",
-      image: "/products/wellness-1.jpg", // Corrected to lowercase
+      name: "T-Shirts",
+      image: "/products/new/stvrt-100_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom yoga mats",
+      alt: "Organic Cotton Crew Neck T-Shirt",
     },
     {
-      name: "Candles",
-      image: "/products/wellness-2.jpg", // Corrected to lowercase
+      name: "Hats & Caps",
+      image: "/products/new/stvrt-105_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Promotional candles",
+      alt: "Embroidered Baseball Cap",
     },
     {
-      name: "Eye Masks",
-      image: "/products/wellness-3.jpg", // Corrected to lowercase
+      name: "Jackets",
+      image: "/products/new/stvrt-110_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded sleep masks",
+      alt: "Lightweight Windbreaker Jacket",
     },
     {
-      name: "Fitness Sets",
-      image: "/products/wellness-4.jpg", // Corrected to lowercase
+      name: "Socks",
+      image: "/products/new/stvrt-115_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Fitness accessories",
+      alt: "Custom Knit Dress Socks",
     },
   ],
-  "Home & Garden": [
+  "Health & Wellness": [
     {
-      name: "Succulents",
-      image: "/products/home-1.jpg", // Already lowercase
+      name: "Hand Sanitizers",
+      image: "/products/new/stvrt-120_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded plant pots",
+      alt: "Pocket Hand Sanitizer Spray",
     },
     {
-      name: "Kitchenware",
-      image: "/products/home-2.jpg", // Corrected to lowercase
+      name: "First Aid Kits",
+      image: "/products/new/stvrt-125_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Kitchen accessories",
+      alt: "Travel First Aid Kit",
     },
     {
-      name: "Blankets",
-      image: "/products/home-3.jpg", // Corrected to lowercase
+      name: "Lip Balm",
+      image: "/products/new/stvrt-130_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom blankets",
+      alt: "SPF Lip Balm with Custom Label",
     },
     {
-      name: "Picnic Sets",
-      image: "/products/home-4.jpg", // Corrected to lowercase
+      name: "Fitness Gear",
+      image: "/products/new/stvrt-135_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Picnic and outdoor gear",
+      alt: "Custom Logo Resistance Band",
+    },
+  ],
+  "Promotional Gifts": [
+    {
+      name: "Keychains",
+      image: "/products/new/stvrt-140_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Metal Key Chain with Bottle Opener",
+    },
+    {
+      name: "Stress Relievers",
+      image: "/products/new/stvrt-145_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Custom Shape Stress Ball",
+    },
+    {
+      name: "Lanyards",
+      image: "/products/new/stvrt-150_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Sublimated Polyester Lanyard",
+    },
+    {
+      name: "Buttons & Pins",
+      image: "/products/new/stvrt-155_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Custom Enamel Pin",
     },
   ],
   Other: [
     {
-      name: "Keychains",
-      image: "/products/other-1.jpg", // Corrected to lowercase
+      name: "Umbrellas",
+      image: "/products/new/stvrt-160_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom keychains",
+      alt: "Automatic Folding Umbrella",
     },
     {
-      name: "Stickers",
-      image: "/products/other-2.jpg", // Corrected to lowercase
+      name: "Flashlights",
+      image: "/products/new/stvrt-165_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Branded stickers",
+      alt: "LED Mini Flashlight Keychain",
+    },
+    {
+      name: "Tools",
+      image: "/products/new/stvrt-170_1.jpg",
+      fallback: SITE_LOGO,
+      alt: "Multi-Tool Kit",
     },
     {
       name: "Gift Sets",
-      image: "/products/other-3.jpg", // Corrected to lowercase
+      image: "/products/new/stvrt-172_1.jpg",
       fallback: SITE_LOGO,
-      alt: "Custom gift sets",
-    },
-    {
-      name: "Umbrellas",
-      image: "/products/other-4.jpg", // Corrected to lowercase
-      fallback: SITE_LOGO,
-      alt: "Branded umbrellas",
+      alt: "Custom Curated Gift Box",
     },
   ],
 }
-
-export const CATEGORIES = Object.keys(NAV_DATA)
