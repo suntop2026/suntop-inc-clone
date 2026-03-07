@@ -1,7 +1,15 @@
 "use client";
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
+
+interface ConfigStatus {
+  status: 'configured' | 'not-configured' | 'checking';
+  apiKeyExists: boolean;
+  apiKeyValid: boolean;
+  message: string;
+  configUrl?: string;
+}
 
 export default function AIDesignLab() {
   const [prompt, setPrompt] = useState("");
@@ -9,8 +17,41 @@ export default function AIDesignLab() {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [debugInfo, setDebugInfo] = useState("");
+  const [configStatus, setConfigStatus] = useState<ConfigStatus>({
+    status: 'checking',
+    apiKeyExists: false,
+    apiKeyValid: false,
+    message: 'Checking configuration...'
+  });
+
+  // 检查 API 配置状态
+  useEffect(() => {
+    const checkConfig = async () => {
+      try {
+        const res = await fetch('/api/generate-image');
+        const data = await res.json();
+        setConfigStatus(data);
+        console.log('[Frontend] Config status:', data);
+      } catch (err) {
+        console.error('[Frontend] Failed to check config:', err);
+        setConfigStatus({
+          status: 'not-configured',
+          apiKeyExists: false,
+          apiKeyValid: false,
+          message: 'Unable to check configuration'
+        });
+      }
+    };
+    checkConfig();
+  }, []);
 
   const generateImage = async () => {
+    // 验证配置
+    if (configStatus.status !== 'configured') {
+      setError('AI service is not configured. Please see the configuration guide below.');
+      return;
+    }
+
     // 验证 prompt
     if (!prompt.trim()) {
       setError("Please enter a design description");
@@ -42,7 +83,7 @@ export default function AIDesignLab() {
       console.log('[Frontend] Response data:', data);
 
       if (!res.ok) {
-        const errorMsg = data.error || `API Error: ${res.status}`;
+        const errorMsg = data.error || data.details || `API Error: ${res.status}`;
         console.error('[Frontend] API error:', errorMsg);
         setError(errorMsg);
         setDebugInfo(`Error: ${errorMsg}`);
@@ -102,6 +143,32 @@ export default function AIDesignLab() {
             </p>
           </div>
 
+          {/* Configuration Status Alert */}
+          {configStatus.status !== 'configured' && (
+            <div className="mb-8 max-w-6xl mx-auto p-6 bg-yellow-50 border-2 border-yellow-300 rounded-lg">
+              <h3 className="text-lg font-bold text-yellow-900 mb-3">⚙️ Configuration Required</h3>
+              <p className="text-yellow-800 mb-4">
+                The AI Design Lab requires an OpenAI API Key to function. Please follow the steps below to configure it:
+              </p>
+              <ol className="list-decimal list-inside space-y-2 text-yellow-800 mb-4">
+                <li>Get your API Key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:underline">OpenAI Platform</a></li>
+                <li>Go to your <a href="https://vercel.com/dashboard" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:underline">Vercel Dashboard</a></li>
+                <li>Select the <strong>suntopify</strong> project</li>
+                <li>Go to <strong>Settings</strong> → <strong>Environment Variables</strong></li>
+                <li>Add a new variable:
+                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
+                    <li><strong>Key:</strong> OPENAI_API_KEY</li>
+                    <li><strong>Value:</strong> (paste your API Key)</li>
+                  </ul>
+                </li>
+                <li>Click <strong>Save</strong> and redeploy your project</li>
+              </ol>
+              <p className="text-yellow-800 text-sm">
+                After configuration, the AI Design Lab will be fully functional.
+              </p>
+            </div>
+          )}
+
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Input Section */}
@@ -115,7 +182,7 @@ export default function AIDesignLab() {
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyPress={handleKeyPress}
                 rows={8}
-                disabled={loading}
+                disabled={loading || configStatus.status !== 'configured'}
               />
 
               <div className="text-sm text-slate-500 mb-6">
@@ -125,9 +192,9 @@ export default function AIDesignLab() {
 
               <button 
                 onClick={generateImage}
-                disabled={loading || !prompt.trim()}
+                disabled={loading || !prompt.trim() || configStatus.status !== 'configured'}
                 className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-all duration-200 ${
-                  loading || !prompt.trim()
+                  loading || !prompt.trim() || configStatus.status !== 'configured'
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl'
                 }`}
