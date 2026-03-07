@@ -110,6 +110,18 @@ export function Navbar() {
               Contact Us
             </Link>
             <Link
+              href="/ai-design"
+              className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
+            >
+              🎨 AI Design Lab
+            </Link>
+            <Link
+              href="/contact"
+              className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
+            >
+              Contact Us
+            </Link>
+            <Link
               href="/quote"
               className="bg-secondary text-secondary-foreground px-6 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity"
             >
@@ -161,6 +173,20 @@ export function Navbar() {
                 )}
               </div>
             ))}
+            <Link
+              href="/contact"
+              className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact Us
+            </Link>
+            <Link
+              href="/ai-design"
+              className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              🎨 AI Design Lab
+            </Link>
             <Link
               href="/contact"
               className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
