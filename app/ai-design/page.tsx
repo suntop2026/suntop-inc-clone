@@ -1,58 +1,15 @@
 "use client";
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
-
-interface ConfigStatus {
-  status: 'configured' | 'not-configured' | 'checking';
-  apiKeyExists: boolean;
-  apiKeyValid: boolean;
-  message: string;
-  configUrl?: string;
-}
 
 export default function AIDesignLab() {
   const [prompt, setPrompt] = useState("");
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
-  const [debugInfo, setDebugInfo] = useState("");
-  const [configStatus, setConfigStatus] = useState<ConfigStatus>({
-    status: 'checking',
-    apiKeyExists: false,
-    apiKeyValid: false,
-    message: 'Checking configuration...'
-  });
-
-  // 检查 API 配置状态
-  useEffect(() => {
-    const checkConfig = async () => {
-      try {
-        const res = await fetch('/api/generate-image');
-        const data = await res.json();
-        setConfigStatus(data);
-        console.log('[Frontend] Config status:', data);
-      } catch (err) {
-        console.error('[Frontend] Failed to check config:', err);
-        setConfigStatus({
-          status: 'not-configured',
-          apiKeyExists: false,
-          apiKeyValid: false,
-          message: 'Unable to check configuration'
-        });
-      }
-    };
-    checkConfig();
-  }, []);
 
   const generateImage = async () => {
-    // 验证配置
-    if (configStatus.status !== 'configured') {
-      setError('AI service is not configured. Please see the configuration guide below.');
-      return;
-    }
-
-    // 验证 prompt
     if (!prompt.trim()) {
       setError("Please enter a design description");
       return;
@@ -61,63 +18,34 @@ export default function AIDesignLab() {
     setLoading(true);
     setError("");
     setImage("");
-    setDebugInfo("Starting image generation...");
 
     try {
-      const requestBody = { prompt: prompt.trim() };
-      setDebugInfo(`Sending request to API...`);
-      console.log('[Frontend] Request body:', requestBody);
-
       const res = await fetch('/api/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(requestBody),
+        body: JSON.stringify({ prompt: prompt.trim() }),
       });
 
-      console.log('[Frontend] Response status:', res.status);
-      setDebugInfo(`API responded with status: ${res.status}`);
-
       const data = await res.json();
-      console.log('[Frontend] Response data:', data);
 
       if (!res.ok) {
-        const errorMsg = data.error || data.details || `API Error: ${res.status}`;
-        console.error('[Frontend] API error:', errorMsg);
+        const errorMsg = data.error || data.details || `Error: ${res.status}`;
         setError(errorMsg);
-        setDebugInfo(`Error: ${errorMsg}`);
         return;
       }
 
       if (!data.image) {
-        console.error('[Frontend] No image in response:', data);
         setError('No image data received from server');
-        setDebugInfo('Error: No image data in response');
         return;
       }
 
-      console.log('[Frontend] Image data received, length:', data.image.length);
-      setDebugInfo(`Image received (${(data.image.length / 1024).toFixed(2)} KB)`);
-
-      // 验证 Base64 格式
-      if (!data.image.startsWith('data:image')) {
-        console.error('[Frontend] Invalid image format:', data.image.substring(0, 50));
-        setError('Invalid image format received');
-        setDebugInfo('Error: Invalid image format');
-        return;
-      }
-
-      // 设置图像
       setImage(data.image);
-      setDebugInfo('Image loaded successfully!');
-      console.log('[Frontend] Image set successfully');
 
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
-      console.error('[Frontend] Catch error:', err);
       setError(`Error: ${errorMessage}`);
-      setDebugInfo(`Exception: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
@@ -143,32 +71,6 @@ export default function AIDesignLab() {
             </p>
           </div>
 
-          {/* Configuration Status Alert */}
-          {configStatus.status !== 'configured' && (
-            <div className="mb-8 max-w-6xl mx-auto p-6 bg-yellow-50 border-2 border-yellow-300 rounded-lg">
-              <h3 className="text-lg font-bold text-yellow-900 mb-3">⚙️ Configuration Required</h3>
-              <p className="text-yellow-800 mb-4">
-                The AI Design Lab requires an OpenAI API Key to function. Please follow the steps below to configure it:
-              </p>
-              <ol className="list-decimal list-inside space-y-2 text-yellow-800 mb-4">
-                <li>Get your API Key from <a href="https://platform.openai.com/api-keys" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:underline">OpenAI Platform</a></li>
-                <li>Go to your <a href="https://vercel.com/dashboard" target="_blank" rel="noopener noreferrer" className="font-semibold text-blue-600 hover:underline">Vercel Dashboard</a></li>
-                <li>Select the <strong>suntopify</strong> project</li>
-                <li>Go to <strong>Settings</strong> → <strong>Environment Variables</strong></li>
-                <li>Add a new variable:
-                  <ul className="list-disc list-inside ml-4 mt-2 space-y-1">
-                    <li><strong>Key:</strong> OPENAI_API_KEY</li>
-                    <li><strong>Value:</strong> (paste your API Key)</li>
-                  </ul>
-                </li>
-                <li>Click <strong>Save</strong> and redeploy your project</li>
-              </ol>
-              <p className="text-yellow-800 text-sm">
-                After configuration, the AI Design Lab will be fully functional.
-              </p>
-            </div>
-          )}
-
           {/* Main Content */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {/* Input Section */}
@@ -182,7 +84,7 @@ export default function AIDesignLab() {
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyPress={handleKeyPress}
                 rows={8}
-                disabled={loading || configStatus.status !== 'configured'}
+                disabled={loading}
               />
 
               <div className="text-sm text-slate-500 mb-6">
@@ -192,9 +94,9 @@ export default function AIDesignLab() {
 
               <button 
                 onClick={generateImage}
-                disabled={loading || !prompt.trim() || configStatus.status !== 'configured'}
+                disabled={loading || !prompt.trim()}
                 className={`w-full py-3 px-6 rounded-lg font-bold text-white transition-all duration-200 ${
-                  loading || !prompt.trim() || configStatus.status !== 'configured'
+                  loading || !prompt.trim()
                     ? 'bg-gray-400 cursor-not-allowed'
                     : 'bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 shadow-lg hover:shadow-xl'
                 }`}
@@ -216,13 +118,6 @@ export default function AIDesignLab() {
                   <p className="text-red-600 text-sm mt-1">{error}</p>
                 </div>
               )}
-
-              {/* Debug Info */}
-              {debugInfo && (
-                <div className="mt-4 p-3 bg-blue-50 border-2 border-blue-200 rounded-lg">
-                  <p className="text-blue-700 text-xs font-mono">{debugInfo}</p>
-                </div>
-              )}
             </div>
 
             {/* Preview Section */}
@@ -236,14 +131,9 @@ export default function AIDesignLab() {
                       src={image} 
                       alt="AI Generated Design" 
                       className="max-w-full max-h-full rounded-lg shadow-md object-contain"
-                      onError={(e) => {
-                        console.error('[Frontend] Image display error');
+                      onError={() => {
                         setError('Failed to display the generated image.');
                         setImage("");
-                      }}
-                      onLoad={() => {
-                        console.log('[Frontend] Image loaded successfully in DOM');
-                        setDebugInfo('Image displayed successfully!');
                       }}
                     />
                   </div>
