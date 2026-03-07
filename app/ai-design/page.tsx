@@ -8,6 +8,7 @@ export default function AIDesignLab() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [debugInfo, setDebugInfo] = useState("");
 
   const generateImage = async () => {
     // 验证 prompt
@@ -19,32 +20,63 @@ export default function AIDesignLab() {
     setLoading(true);
     setError("");
     setImage("");
+    setDebugInfo("Starting image generation...");
 
     try {
+      const requestBody = { prompt: prompt.trim() };
+      setDebugInfo(`Sending request to API...`);
+      console.log('[Frontend] Request body:', requestBody);
+
       const res = await fetch('/api/generate-image', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ prompt: prompt.trim() }),
+        body: JSON.stringify(requestBody),
       });
 
+      console.log('[Frontend] Response status:', res.status);
+      setDebugInfo(`API responded with status: ${res.status}`);
+
       const data = await res.json();
+      console.log('[Frontend] Response data:', data);
 
       if (!res.ok) {
-        throw new Error(data.error || 'Failed to generate image');
+        const errorMsg = data.error || `API Error: ${res.status}`;
+        console.error('[Frontend] API error:', errorMsg);
+        setError(errorMsg);
+        setDebugInfo(`Error: ${errorMsg}`);
+        return;
       }
 
       if (!data.image) {
-        throw new Error('No image data received');
+        console.error('[Frontend] No image in response:', data);
+        setError('No image data received from server');
+        setDebugInfo('Error: No image data in response');
+        return;
       }
 
-      // 直接设置 Base64 图像数据
+      console.log('[Frontend] Image data received, length:', data.image.length);
+      setDebugInfo(`Image received (${(data.image.length / 1024).toFixed(2)} KB)`);
+
+      // 验证 Base64 格式
+      if (!data.image.startsWith('data:image')) {
+        console.error('[Frontend] Invalid image format:', data.image.substring(0, 50));
+        setError('Invalid image format received');
+        setDebugInfo('Error: Invalid image format');
+        return;
+      }
+
+      // 设置图像
       setImage(data.image);
+      setDebugInfo('Image loaded successfully!');
+      console.log('[Frontend] Image set successfully');
+
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
-      setError(errorMessage);
-      console.error('Generation error:', err);
+      console.error('[Frontend] Catch error:', err);
+      setError(`Error: ${errorMessage}`);
+      setDebugInfo(`Exception: ${errorMessage}`);
     } finally {
       setLoading(false);
     }
@@ -110,10 +142,18 @@ export default function AIDesignLab() {
                 )}
               </button>
 
+              {/* Error Display */}
               {error && (
                 <div className="mt-4 p-4 bg-red-50 border-2 border-red-200 rounded-lg">
                   <p className="text-red-700 font-semibold">⚠️ Error</p>
                   <p className="text-red-600 text-sm mt-1">{error}</p>
+                </div>
+              )}
+
+              {/* Debug Info */}
+              {debugInfo && (
+                <div className="mt-4 p-3 bg-blue-50 border-2 border-blue-200 rounded-lg">
+                  <p className="text-blue-700 text-xs font-mono">{debugInfo}</p>
                 </div>
               )}
             </div>
@@ -130,8 +170,13 @@ export default function AIDesignLab() {
                       alt="AI Generated Design" 
                       className="max-w-full max-h-full rounded-lg shadow-md object-contain"
                       onError={(e) => {
-                        console.error('Image display error');
-                        setError('Failed to display the generated image. Please try again.');
+                        console.error('[Frontend] Image display error');
+                        setError('Failed to display the generated image.');
+                        setImage("");
+                      }}
+                      onLoad={() => {
+                        console.log('[Frontend] Image loaded successfully in DOM');
+                        setDebugInfo('Image displayed successfully!');
                       }}
                     />
                   </div>

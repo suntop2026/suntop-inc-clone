@@ -23,8 +23,8 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3">
+          {/* Logo - Icon Only */}
+          <Link href="/" className="flex items-center">
             <div className="relative h-12 w-12">
               <Image
                 src={siteConfig.logo.url || "/logo.png"}
@@ -34,9 +34,6 @@ export function Navbar() {
                 priority
               />
             </div>
-            <span className="text-lg font-bold text-primary-foreground">
-              SUNTOP <span className="text-secondary">INC</span>
-            </span>
           </Link>
 
           {/* Desktop Menu - dynamically generated from NAV_DATA */}
