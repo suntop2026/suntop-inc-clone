@@ -18,6 +18,8 @@ export async function POST(req: Request) {
       );
     }
 
+    console.log('Generating image for prompt:', prompt.trim());
+
     // 调用 OpenAI DALL-E 3 API 生成图像
     const response = await client.images.generate({
       model: 'dall-e-3',
@@ -26,50 +28,44 @@ export async function POST(req: Request) {
       size: '1024x1024',
       quality: 'standard',
       style: 'vivid',
+      response_format: 'b64_json', // 直接请求 Base64 格式，更稳定
     });
 
-    // 获取生成的图像 URL
-    const imageUrl = response.data[0]?.url;
+    // 获取生成的 Base64 图像数据
+    const b64Data = response.data[0]?.b64_json;
 
-    if (!imageUrl) {
+    if (!b64Data) {
       return NextResponse.json(
-        { error: 'Failed to generate image' },
+        { error: 'Failed to generate image data' },
         { status: 500 }
       );
     }
 
-    // 下载图像并返回
-    const imageResponse = await fetch(imageUrl);
-    const imageBuffer = await imageResponse.arrayBuffer();
-
-    return new NextResponse(imageBuffer, {
-      headers: {
-        'Content-Type': 'image/png',
-        'Cache-Control': 'no-cache, no-store, must-revalidate',
-      },
+    // 返回 Base64 数据给前端
+    return NextResponse.json({ 
+      image: `data:image/png;base64,${b64Data}` 
     });
-  } catch (error) {
+
+  } catch (error: any) {
     console.error('Image generation error:', error);
 
     // 处理特定的 OpenAI 错误
-    if (error instanceof Error) {
-      if (error.message.includes('rate limit')) {
-        return NextResponse.json(
-          { error: 'Rate limit exceeded. Please try again later.' },
-          { status: 429 }
-        );
-      }
-      if (error.message.includes('API key')) {
-        return NextResponse.json(
-          { error: 'API configuration error' },
-          { status: 500 }
-        );
-      }
+    let errorMessage = 'Failed to generate image. Please try again.';
+    let statusCode = 500;
+
+    if (error?.message?.includes('rate limit')) {
+      errorMessage = 'Rate limit exceeded. Please try again later.';
+      statusCode = 429;
+    } else if (error?.message?.includes('billing')) {
+      errorMessage = 'Service temporarily unavailable (billing).';
+    } else if (error?.message?.includes('safety')) {
+      errorMessage = 'Your prompt was flagged by our safety system. Please try a different description.';
+      statusCode = 400;
     }
 
     return NextResponse.json(
-      { error: 'Failed to generate image. Please try again.' },
-      { status: 500 }
+      { error: errorMessage },
+      { status: statusCode }
     );
   }
 }

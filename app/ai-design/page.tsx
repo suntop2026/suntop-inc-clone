@@ -29,14 +29,18 @@ export default function AIDesignLab() {
         body: JSON.stringify({ prompt: prompt.trim() }),
       });
 
+      const data = await res.json();
+
       if (!res.ok) {
-        const errorData = await res.json();
-        throw new Error(errorData.error || 'Failed to generate image');
+        throw new Error(data.error || 'Failed to generate image');
       }
 
-      const blob = await res.blob();
-      const url = URL.createObjectURL(blob);
-      setImage(url);
+      if (!data.image) {
+        throw new Error('No image data received');
+      }
+
+      // 直接设置 Base64 图像数据
+      setImage(data.image);
     } catch (err) {
       const errorMessage = err instanceof Error ? err.message : 'An error occurred';
       setError(errorMessage);
@@ -118,13 +122,17 @@ export default function AIDesignLab() {
             <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col">
               <h2 className="text-2xl font-bold mb-6 text-slate-900">Design Preview</h2>
               
-              <div className="flex-1 border-2 border-dashed border-slate-300 rounded-lg flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 min-h-96">
+              <div className="flex-1 border-2 border-dashed border-slate-300 rounded-lg flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 min-h-96 overflow-hidden">
                 {image ? (
                   <div className="w-full h-full flex items-center justify-center p-4">
                     <img 
                       src={image} 
                       alt="AI Generated Design" 
                       className="max-w-full max-h-full rounded-lg shadow-md object-contain"
+                      onError={(e) => {
+                        console.error('Image display error');
+                        setError('Failed to display the generated image. Please try again.');
+                      }}
                     />
                   </div>
                 ) : (
