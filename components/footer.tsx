@@ -1,4 +1,5 @@
 import Link from "next/link"
+import Image from "next/image"
 import { Facebook, Twitter, Instagram, Linkedin } from "lucide-react"
 
 export function Footer() {
@@ -8,13 +9,14 @@ export function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {/* Company Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="h-10 w-10 rounded-full bg-secondary flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">ST</span>
-              </div>
-              <span className="text-xl font-bold">
-                SUNTOP <span className="text-secondary">INC</span>
-              </span>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src="/logo.png"
+                alt="Suntopify Logo"
+                width={40}
+                height={40}
+                className="h-10 w-10 object-contain"
+              />
             </div>
             <p className="text-primary-foreground/80 mb-4 text-pretty">
               Your trusted partner for custom promotional products. Bringing brands to life since 2008.
