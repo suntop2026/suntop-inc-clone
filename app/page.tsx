@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/navbar"
 import { Hero } from "@/components/hero"
+import { AIDesignBanner } from "@/components/ai-design-banner"
 import { TrustedBy } from "@/components/trusted-by"
 import { ProductGrid } from "@/components/product-grid"
 import { QuoteCTA } from "@/components/quote-cta"
@@ -14,6 +15,7 @@ export default function Home() {
       <Navbar />
       <main className="min-h-screen">
         <Hero />
+        <AIDesignBanner />
         <TrustedBy />
         <TrustBadges />
         <ProductGrid />
