@@ -2,7 +2,9 @@ import { NextResponse } from 'next/server';
 
 export async function POST(req: Request) {
   try {
-    const { prompt } = await req.json();
+    const formData = await req.formData();
+    const prompt = formData.get('prompt') as string;
+    const referenceImageFile = formData.get('referenceImage') as File | null;
 
     // 验证 prompt
     if (!prompt || typeof prompt !== 'string' || prompt.trim().length === 0) {
@@ -23,6 +25,36 @@ export async function POST(req: Request) {
       );
     }
 
+    let enhancedPrompt = trimmedPrompt;
+
+    // 如果有参考图片，将其转换为 Base64 并增强 prompt
+    let referenceImageBase64: string | null = null;
+    if (referenceImageFile) {
+      try {
+        const buffer = await referenceImageFile.arrayBuffer();
+        referenceImageBase64 = Buffer.from(buffer).toString('base64');
+        
+        // 增强 prompt，告诉 AI 参考了一个参考图片
+        enhancedPrompt = `Based on the reference image provided, ${trimmedPrompt}`;
+      } catch (error) {
+        return NextResponse.json(
+          { error: 'Failed to process reference image' },
+          { status: 400 }
+        );
+      }
+    }
+
+    // 构建请求体
+    const requestBody: any = {
+      model: 'dall-e-3',
+      prompt: enhancedPrompt,
+      n: 1,
+      size: '1024x1024',
+      quality: 'standard',
+      style: 'vivid',
+      response_format: 'b64_json',
+    };
+
     // 调用 OpenAI DALL-E 3 API
     const openaiResponse = await fetch('https://api.openai.com/v1/images/generations', {
       method: 'POST',
@@ -30,15 +62,7 @@ export async function POST(req: Request) {
         'Content-Type': 'application/json',
         'Authorization': `Bearer ${apiKey}`,
       },
-      body: JSON.stringify({
-        model: 'dall-e-3',
-        prompt: trimmedPrompt,
-        n: 1,
-        size: '1024x1024',
-        quality: 'standard',
-        style: 'vivid',
-        response_format: 'b64_json',
-      }),
+      body: JSON.stringify(requestBody),
     });
 
     if (!openaiResponse.ok) {
@@ -84,6 +108,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ 
       image: imageDataUrl,
       success: true,
+      hasReference: !!referenceImageFile,
     });
 
   } catch (error: any) {

@@ -5,9 +5,43 @@ import { Footer } from "@/components/footer";
 
 export default function AIDesignLab() {
   const [prompt, setPrompt] = useState("");
+  const [referenceImage, setReferenceImage] = useState<string | null>(null);
+  const [referenceImageFile, setReferenceImageFile] = useState<File | null>(null);
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+
+  const handleImageUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const file = e.target.files?.[0];
+    if (!file) return;
+
+    // 验证文件类型
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload a valid image file');
+      return;
+    }
+
+    // 验证文件大小 (最大 5MB)
+    if (file.size > 5 * 1024 * 1024) {
+      setError('Image size must be less than 5MB');
+      return;
+    }
+
+    setReferenceImageFile(file);
+    setError("");
+
+    // 创建预览
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      setReferenceImage(event.target?.result as string);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const removeReferenceImage = () => {
+    setReferenceImage(null);
+    setReferenceImageFile(null);
+  };
 
   const generateImage = async () => {
     if (!prompt.trim()) {
@@ -20,12 +54,15 @@ export default function AIDesignLab() {
     setImage("");
 
     try {
+      const formData = new FormData();
+      formData.append('prompt', prompt.trim());
+      if (referenceImageFile) {
+        formData.append('referenceImage', referenceImageFile);
+      }
+
       const res = await fetch('/api/generate-image', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ prompt: prompt.trim() }),
+        body: formData,
       });
 
       const data = await res.json();
@@ -67,7 +104,7 @@ export default function AIDesignLab() {
             <h1 className="text-5xl font-bold mb-4 text-slate-900">🎨 AI Design Lab</h1>
             <p className="text-xl text-slate-600 max-w-2xl mx-auto">
               Transform your promotional product ideas into stunning visual designs using AI. 
-              Describe your vision and let our AI create the perfect design for your brand.
+              Describe your vision and optionally upload a reference image to guide the design.
             </p>
           </div>
 
@@ -83,12 +120,54 @@ export default function AIDesignLab() {
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
                 onKeyPress={handleKeyPress}
-                rows={8}
+                rows={6}
                 disabled={loading}
               />
 
+              {/* Reference Image Upload Section */}
+              <div className="mb-6">
+                <label className="block text-sm font-semibold text-slate-700 mb-3">
+                  📎 Reference Image (Optional)
+                </label>
+                
+                {!referenceImage ? (
+                  <div className="border-2 border-dashed border-slate-300 rounded-lg p-6 text-center hover:border-orange-400 transition-colors cursor-pointer bg-slate-50">
+                    <input
+                      type="file"
+                      accept="image/*"
+                      onChange={handleImageUpload}
+                      disabled={loading}
+                      className="hidden"
+                      id="image-upload"
+                    />
+                    <label htmlFor="image-upload" className="cursor-pointer block">
+                      <p className="text-slate-600 font-medium mb-2">Click to upload or drag and drop</p>
+                      <p className="text-slate-400 text-sm">PNG, JPG, GIF up to 5MB</p>
+                    </label>
+                  </div>
+                ) : (
+                  <div className="relative">
+                    <img 
+                      src={referenceImage} 
+                      alt="Reference" 
+                      className="w-full h-48 object-cover rounded-lg border-2 border-orange-300"
+                    />
+                    <button
+                      onClick={removeReferenceImage}
+                      disabled={loading}
+                      className="absolute top-2 right-2 bg-red-500 hover:bg-red-600 text-white rounded-full p-2 transition-colors"
+                      title="Remove reference image"
+                    >
+                      ✕
+                    </button>
+                    <p className="text-sm text-slate-500 mt-2">Reference image loaded. Click the ✕ to remove.</p>
+                  </div>
+                )}
+              </div>
+
               <div className="text-sm text-slate-500 mb-6">
                 <p>💡 Tip: Be specific about colors, style, and elements for best results.</p>
+                <p>📸 Tip: Upload a reference image to guide the AI design generation.</p>
                 <p>Press Ctrl+Enter to generate quickly.</p>
               </div>
 
