@@ -1,10 +1,8 @@
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
-import { useRouter } from "next/navigation"
+import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { Card, CardContent } from "@/components/ui/card"
 import { categories } from "@/lib/static-data"
@@ -63,7 +61,6 @@ export function ProductsContent() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  // Fetch products from API
   useEffect(() => {
     async function fetchProducts() {
       try {
@@ -106,10 +103,10 @@ export function ProductsContent() {
     window.history.pushState({}, "", url)
   }
 
-  const handleAddToQuote = (e: React.MouseEvent, productName: string) => {
+  const handleAddToQuote = (e: React.MouseEvent, productId: string) => {
     e.preventDefault()
     e.stopPropagation()
-    router.push(`/quote?product=${encodeURIComponent(productName)}`)
+    router.push(`/quote?product=${encodeURIComponent(productId)}`)
   }
 
   if (loading) {
@@ -207,10 +204,13 @@ export function ProductsContent() {
                     <ProductImage src={product.image} alt={product.imageAlt} />
                   </div>
                   <CardContent className="p-4 flex flex-col flex-1">
-                    <div className="text-sm text-muted-foreground mb-1">{product.category}</div>
+                    <div className="flex justify-between items-center text-sm text-muted-foreground mb-1">
+                      <span>{product.category}</span>
+                      <span className="font-mono text-xs bg-muted px-2 py-1 rounded">{product.id}</span>
+                    </div>
                     <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
                     <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>
-                    <div className="space-y-1 flex-1">
+                    <div className="space-y-1 flex-1 mt-auto">
                       <div className="text-xl font-bold text-secondary">From ${product.price.toFixed(2)}</div>
                       <div className="text-sm text-muted-foreground">MOQ: {product.moq} units</div>
                     </div>
@@ -218,7 +218,7 @@ export function ProductsContent() {
                 </Card>
               </Link>
               <button
-                onClick={(e) => handleAddToQuote(e, product.name)}
+                onClick={(e) => handleAddToQuote(e, product.id)}
                 className="mt-4 w-full bg-secondary text-secondary-foreground px-4 py-2 rounded-lg font-semibold hover:opacity-90 transition-opacity text-sm"
               >
                 Add to Quote

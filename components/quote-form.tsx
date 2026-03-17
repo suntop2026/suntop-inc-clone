@@ -2,7 +2,7 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { useSearchParams, useRouter } from "next/navigation"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -24,8 +24,16 @@ export function QuoteForm() {
   const [submitted, setSubmitted] = useState(false)
   const [errors, setErrors] = useState<Record<string, string>>({})
 
-  const selectedProductData = staticProducts.find((p) => p.name === selectedProduct || p.slug === selectedProduct)
+  // Find product data based on name or slug
+  const selectedProductData = staticProducts.find((p) => p.name === selectedProduct || p.slug === selectedProduct || p.id === selectedProduct)
   const minQty = selectedProductData?.moq || 50
+
+  // Update selected product if URL param changes
+  useEffect(() => {
+    if (productParam) {
+      setSelectedProduct(productParam)
+    }
+  }, [productParam])
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {}
@@ -38,7 +46,8 @@ export function QuoteForm() {
     if (!name.trim()) newErrors.name = "Please enter your name"
     if (!email.trim()) newErrors.email = "Please enter your email"
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) newErrors.email = "Please enter a valid email"
-    if (!company.trim()) newErrors.company = "Please enter your company name"
+    
+    // Company Name is now optional, so no validation needed here
 
     setErrors(newErrors)
     return Object.keys(newErrors).length === 0
@@ -116,12 +125,17 @@ export function QuoteForm() {
                 >
                   <option value="">Select a product</option>
                   {staticProducts.map((product) => (
-                    <option key={product.id} value={product.name}>
-                      {product.name} (MOQ: {product.moq})
+                    <option key={product.id} value={product.id}>
+                      {product.id} - {product.name} (MOQ: {product.moq})
                     </option>
                   ))}
                 </select>
                 {errors.product && <p className="text-red-500 text-sm mt-1">{errors.product}</p>}
+                {selectedProductData && (
+                  <p className="text-sm text-muted-foreground mt-2">
+                    Selected Item SKU: <span className="font-bold text-secondary">{selectedProductData.id}</span>
+                  </p>
+                )}
               </div>
 
               {/* Quantity Field */}
@@ -201,19 +215,17 @@ export function QuoteForm() {
 
                 <div>
                   <label className="block text-sm font-medium text-foreground mb-1">
-                    Company Name <span className="text-red-500">*</span>
+                    Company Name <span className="text-muted-foreground text-xs ml-1">(Optional)</span>
                   </label>
                   <input
                     type="text"
                     value={company}
                     onChange={(e) => {
                       setCompany(e.target.value)
-                      setErrors({ ...errors, company: "" })
                     }}
                     placeholder="Your Company"
                     className="w-full px-4 py-2 border border-border rounded-lg bg-card text-card-foreground focus:outline-none focus:ring-2 focus:ring-secondary"
                   />
-                  {errors.company && <p className="text-red-500 text-sm mt-1">{errors.company}</p>}
                 </div>
               </div>
 

@@ -1,4 +1,23 @@
 export const siteConfig = {
+  // Company Information
+  companyName: "SUNTOP INC",
+  contactPerson: "Grace P",
+  email: "sales@suntopify.com",
+  phone: "+1 (919) 899-9969",
+  address: {
+    street: "20533 East Walnut Drive North",
+    city: "Diamond Bar",
+    state: "CA",
+    zip: "91789",
+    country: "USA",
+  },
+  socials: {
+    facebook: "https://www.facebook.com/suntopinc",
+    twitter: "https://twitter.com/suntopinc",
+    instagram: "https://www.instagram.com/suntopinc",
+    linkedin: "https://www.linkedin.com/company/suntopinc",
+  },
+
   // Logo
   logo: {
     url: "/logo.png",
