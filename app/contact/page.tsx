@@ -33,8 +33,8 @@ export default function ContactPage() {
                 <h3 className="text-xl font-semibold">Email</h3>
               </div>
               <p className="text-muted-foreground mb-2">Send us an email anytime</p>
-              <a href="mailto:suntopay@outlook.com" className="text-secondary font-semibold hover:underline">
-                suntopay@outlook.com
+              <a href="mailto:sales@suntopify.com" className="text-secondary font-semibold hover:underline">
+                sales@suntopify.com
               </a>
             </div>
 
@@ -93,15 +93,15 @@ export default function ContactPage() {
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Contact Person
                     </h3>
-                    <p className="text-lg font-semibold text-primary">Xiangcheng Zhang</p>
+                    <p className="text-lg font-semibold text-primary">Grace P</p>
                   </div>
 
                   <div>
                     <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">
                       Email Address
                     </h3>
-                    <a href="mailto:suntopay@outlook.com" className="text-lg font-semibold text-secondary hover:underline">
-                      suntopay@outlook.com
+                    <a href="mailto:sales@suntopify.com" className="text-lg font-semibold text-secondary hover:underline">
+                      sales@suntopify.com
                     </a>
                   </div>
 
@@ -169,7 +169,7 @@ export default function ContactPage() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a
-                href="mailto:suntopay@outlook.com"
+                href="mailto:sales@suntopify.com"
                 className="inline-flex items-center justify-center px-8 py-3 bg-secondary text-primary font-semibold rounded-lg hover:bg-secondary/90 transition-colors"
               >
                 Send Email
