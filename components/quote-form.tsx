@@ -126,14 +126,14 @@ export function QuoteForm() {
                   <option value="">Select a product</option>
                   {staticProducts.map((product) => (
                     <option key={product.id} value={product.id}>
-                      {product.id} - {product.name} (MOQ: {product.moq})
+                      Product No: {product.id} - {product.name} (MOQ: {product.moq})
                     </option>
                   ))}
                 </select>
                 {errors.product && <p className="text-red-500 text-sm mt-1">{errors.product}</p>}
                 {selectedProductData && (
                   <p className="text-sm text-muted-foreground mt-2">
-                    Selected Item SKU: <span className="font-bold text-secondary">{selectedProductData.id}</span>
+                    Selected Product Number: <span className="font-bold text-secondary">{selectedProductData.id}</span>
                   </p>
                 )}
               </div>

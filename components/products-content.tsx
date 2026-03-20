@@ -206,7 +206,7 @@ export function ProductsContent() {
                   <CardContent className="p-4 flex flex-col flex-1">
                     <div className="flex justify-between items-center text-sm text-muted-foreground mb-1">
                       <span>{product.category}</span>
-                      <span className="font-mono text-xs bg-muted px-2 py-1 rounded">{product.id}</span>
+                      <span className="font-mono text-xs bg-secondary/20 text-secondary px-2 py-1 rounded font-semibold">Product No: {product.id}</span>
                     </div>
                     <h3 className="font-semibold text-lg mb-2 text-card-foreground">{product.name}</h3>
                     <p className="text-sm text-muted-foreground mb-3 line-clamp-2">{product.description}</p>

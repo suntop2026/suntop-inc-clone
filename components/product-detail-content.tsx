@@ -82,7 +82,7 @@ export function ProductDetailContent({ slug }: { slug: string }) {
           <div className="mb-6">
             <div className="flex items-center gap-3 mb-2">
               <div className="text-sm font-medium text-secondary uppercase tracking-wider">{product.category}</div>
-              <span className="text-xs font-mono bg-muted px-2 py-1 rounded text-muted-foreground">SKU: {product.id}</span>
+              <span className="text-xs font-mono bg-secondary/20 text-secondary px-2 py-1 rounded font-semibold">Product Number: {product.id}</span>
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">{product.name}</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{product.summary || product.description}</p>
@@ -167,7 +167,7 @@ export function ProductDetailContent({ slug }: { slug: string }) {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
             <div className="flex justify-between py-3 border-b border-muted">
-              <span className="font-bold text-primary">Item Number (SKU)</span>
+              <span className="font-bold text-primary">Product Number</span>
               <span className="text-muted-foreground text-right ml-4">{product.id}</span>
             </div>
             {Object.entries(product.specs || {}).map(([key, value]) => (
