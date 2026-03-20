@@ -8,6 +8,7 @@ import { FactorySection } from "@/components/factory-section"
 import { Footer } from "@/components/footer"
 import { TrustBadges } from "@/components/trust-badges"
 import { Testimonials } from "@/components/testimonials"
+import { CoreAdvantages } from "@/components/core-advantages"
 
 export default function Home() {
   return (
@@ -16,6 +17,7 @@ export default function Home() {
       <main className="min-h-screen">
         <Hero />
         <AIDesignBanner />
+        <CoreAdvantages />
         <TrustedBy />
         <TrustBadges />
         <ProductGrid />
