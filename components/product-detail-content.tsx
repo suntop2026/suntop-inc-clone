@@ -80,7 +80,10 @@ export function ProductDetailContent({ slug }: { slug: string }) {
         {/* Product Info */}
         <div className="flex flex-col">
           <div className="mb-6">
-            <div className="text-sm font-medium text-secondary uppercase tracking-wider mb-2">{product.category}</div>
+            <div className="flex items-center gap-3 mb-2">
+              <div className="text-sm font-medium text-secondary uppercase tracking-wider">{product.category}</div>
+              <span className="text-xs font-mono bg-muted px-2 py-1 rounded text-muted-foreground">SKU: {product.id}</span>
+            </div>
             <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4">{product.name}</h1>
             <p className="text-lg text-muted-foreground leading-relaxed">{product.summary || product.description}</p>
           </div>
@@ -163,6 +166,10 @@ export function ProductDetailContent({ slug }: { slug: string }) {
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-4">
+            <div className="flex justify-between py-3 border-b border-muted">
+              <span className="font-bold text-primary">Item Number (SKU)</span>
+              <span className="text-muted-foreground text-right ml-4">{product.id}</span>
+            </div>
             {Object.entries(product.specs || {}).map(([key, value]) => (
               value && value !== "nan" && value !== "None" && (
                 <div key={key} className="flex justify-between py-3 border-b border-muted">
