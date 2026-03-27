@@ -14,6 +14,7 @@ export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const [mobileSubmenuOpen, setMobileSubmenuOpen] = useState<string | null>(null)
+  const [menuCloseTimeout, setMenuCloseTimeout] = useState<NodeJS.Timeout | null>(null)
 
   const getCategoryUrl = (category: string) => {
     return `/products?category=${encodeURIComponent(category)}`
@@ -42,8 +43,14 @@ export function Navbar() {
               <div
                 key={category}
                 className="relative"
-                onMouseEnter={() => setActiveMenu(category)}
-                onMouseLeave={() => setActiveMenu(null)}
+                onMouseEnter={() => {
+                  if (menuCloseTimeout) clearTimeout(menuCloseTimeout)
+                  setActiveMenu(category)
+                }}
+                onMouseLeave={() => {
+                  const timeout = setTimeout(() => setActiveMenu(null), 150)
+                  setMenuCloseTimeout(timeout)
+                }}
               >
                 <Link
                   href={getCategoryUrl(category)}
@@ -55,7 +62,7 @@ export function Navbar() {
 
                 {/* Mega dropdown menu */}
                 {activeMenu === category && (
-                  <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2">
+                  <div className="absolute left-1/2 top-full -translate-x-1/2 pt-2 animate-in fade-in slide-in-from-top-2 duration-200">
                     <div className="bg-card border border-border rounded-lg shadow-2xl p-6 w-[600px]">
                       <div className="grid grid-cols-4 gap-4 mb-4">
                         {NAV_DATA[category].map((item) => (
