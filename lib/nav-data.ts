@@ -1,146 +1,210 @@
 export const NAV_DATA = {
-  Apparel: [
+  "Apparel & Accessories": [
     {
-      name: "T-Shirts",
-      img: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 007",
+      name: "Waterproof Foldable Picnic Blanket With PU Carry Handle",
+      image: "/products/STVRT007.jpg", 
+      category: "Apparel & Accessories"
     },
     {
-      name: "Hoodies",
-      img: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 012",
+      name: "40\"x 12\" Full Color Polyester Cooling Towel",
+      image: "/products/STVRT012.jpg", 
+      category: "Apparel & Accessories"
     },
     {
-      name: "Jackets",
-      img: "https://images.unsplash.com/photo-1591047139829-d91aecb6caea?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 013",
+      name: "210T Foldable Beach Blanket With Corner Anchors",
+      image: "/products/STVRT013.jpg", 
+      category: "Apparel & Accessories"
     },
     {
-      name: "Caps",
-      img: "https://images.unsplash.com/photo-1588850561407-ed78c282e89b?auto=format&fit=crop&q=80&w=400",
-    },
-  ],
-  Drinkware: [
-    {
-      name: "Mugs",
-      img: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Tumblers",
-      img: "https://images.unsplash.com/photo-1577705998148-6bd4f3961bb2?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Water Bottles",
-      img: "https://images.unsplash.com/photo-1602143303704-375960017160?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Glassware",
-      img: "https://images.unsplash.com/photo-1516715667182-c8e29ecad647?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 031",
+      name: "UPF 50 Foldable Polyester Baseball Cap With Packable Long Bill",
+      image: "/products/STVRT031.jpg", 
+      category: "Apparel & Accessories"
     },
   ],
-  Tech: [
+  "Bags & Totes": [
     {
-      name: "Power Banks",
-      img: "https://images.unsplash.com/photo-1619134105202-0e869389a997?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 002",
+      name: "Poly Cotton Canvas Convertible Ribbon Tie Tote Bag",
+      image: "/products/STVRT002.jpg", 
+      category: "Bags & Totes"
     },
     {
-      name: "Chargers",
-      img: "https://images.unsplash.com/photo-1622445275463-afa2ab738c34?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 010",
+      name: "2 1/2\" Magnetic ABS Bag Clip With Memo Pad",
+      image: "/products/STVRT010.jpg", 
+      category: "Bags & Totes"
     },
     {
-      name: "Speakers",
-      img: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 011",
+      name: "Waterproof Oxford Laptop Briefcase With Organizer Pockets",
+      image: "/products/STVRT011.jpg", 
+      category: "Bags & Totes"
     },
     {
-      name: "Cables",
-      img: "https://images.unsplash.com/photo-1585338107529-13afc5f02586?auto=format&fit=crop&q=80&w=400",
-    },
-  ],
-  Office: [
-    {
-      name: "Notebooks",
-      img: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Pens",
-      img: "https://images.unsplash.com/photo-1583483425010-c566431a7710?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Desk Mats",
-      img: "https://images.unsplash.com/photo-1631015300202-7b21946603a1?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Planners",
-      img: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 014",
+      name: "Zippered Travel Golf Shoe Bag With Carry Handle",
+      image: "/products/STVRT014.jpg", 
+      category: "Bags & Totes"
     },
   ],
-  Bags: [
+  "Drinkware": [
     {
-      name: "Canvas Totes",
-      img: "https://images.unsplash.com/photo-1544816153-12ad5d714b21?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 009",
+      name: "600D Oxford Folding Cooler Chair With Steel Frame",
+      image: "/products/STVRT009.jpg", 
+      category: "Drinkware"
     },
     {
-      name: "Backpacks",
-      img: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 019",
+      name: "Aluminum Keychain Pill Box Travel Storage Capsule",
+      image: "/products/STVRT019.jpg", 
+      category: "Drinkware"
     },
     {
-      name: "Laptop Sleeves",
-      img: "https://images.unsplash.com/photo-1544333346-64e4fe1f93f5?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 038",
+      name: "11 oz Gloss Finish C-Handle Ceramic Coffee Mug",
+      image: "/products/STVRT038.jpg", 
+      category: "Drinkware"
     },
     {
-      name: "Duffel Bags",
-      img: "https://images.unsplash.com/photo-1547949003-9792a18a2601?auto=format&fit=crop&q=80&w=400",
-    },
-  ],
-  Wellness: [
-    {
-      name: "Yoga Mats",
-      img: "https://images.unsplash.com/photo-1601925260368-ae2f83cf8b7f?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Candles",
-      img: "https://images.unsplash.com/photo-1602874801007-bd458bb1b8b6?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Eye Masks",
-      img: "https://images.unsplash.com/photo-1595111101532-a535f8839206?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Fitness Sets",
-      img: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 048",
+      name: "Insulated 24-Can Save Front Pocket Folding Cooler Bag Chair",
+      image: "/products/STVRT048.jpg", 
+      category: "Drinkware"
     },
   ],
-  "Home & Garden": [
+  "Health & Wellness": [
     {
-      name: "Succulents",
-      img: "https://images.unsplash.com/photo-1545239351-ef35f43d514b?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 085",
+      name: "Slow Rise Oil Drum Shaped PU Stress Reliever",
+      image: "/products/STVRT085.jpg", 
+      category: "Health & Wellness"
     },
     {
-      name: "Kitchenware",
-      img: "https://images.unsplash.com/photo-1556910103-1c02745aae4d?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 086",
+      name: "Slow Rise PU Tire Stress Reliever",
+      image: "/products/STVRT086.jpg", 
+      category: "Health & Wellness"
     },
     {
-      name: "Blankets",
-      img: "https://images.unsplash.com/photo-1580301762395-21ce84d00bc6?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 087",
+      name: "Slow Rise PU Fire Truck Stress Reliever",
+      image: "/products/STVRT087.jpg", 
+      category: "Health & Wellness"
     },
     {
-      name: "Picnic Sets",
-      img: "https://images.unsplash.com/photo-1594498653385-d5172b532c00?auto=format&fit=crop&q=80&w=400",
-    },
-  ],
-  Other: [
-    {
-      name: "Keychains",
-      img: "https://images.unsplash.com/photo-1584622781564-1d9876a13d00?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Stickers",
-      img: "https://images.unsplash.com/photo-1572375992501-4b0892d50c69?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Gift Sets",
-      img: "https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&q=80&w=400",
-    },
-    {
-      name: "Umbrellas",
-      img: "https://images.unsplash.com/photo-1527664557558-a2b352fcf203?auto=format&fit=crop&q=80&w=400",
+      id: "STVRT 088",
+      name: "Non Slip TPE Plank Exercise Mat For Core Training",
+      image: "/products/STVRT088.jpg", 
+      category: "Health & Wellness"
     },
   ],
-}
+  "Office & Stationery": [
+    {
+      id: "STVRT 003",
+      name: "30 Pages Custom Printed Paper Notepad",
+      image: "/products/STVRT003.jpg", 
+      category: "Office & Stationery"
+    },
+    {
+      id: "STVRT 005",
+      name: "Eco Friendly Corkwood Coaster Pot Pad 4 Inch Round",
+      image: "/products/STVRT005.jpg", 
+      category: "Office & Stationery"
+    },
+    {
+      id: "STVRT 008",
+      name: "Wool-like Acrylic Reusable Castor Oil Pack Waist And Neck Wrap Set",
+      image: "/products/STVRT008.jpg", 
+      category: "Office & Stationery"
+    },
+    {
+      id: "STVRT 034",
+      name: "Polyester Roll-Up Travel Tech Organizer Pouch With Elastic Loops & Tie Cord",
+      image: "/products/STVRT034.jpg", 
+      category: "Office & Stationery"
+    },
+  ],
+  "Promotional Gifts": [
+    {
+      id: "STVRT 004",
+      name: "58 Inch Auto Open Windproof Golf Umbrella W/ 190T Pongee",
+      image: "/products/STVRT004.jpg", 
+      category: "Promotional Gifts"
+    },
+    {
+      id: "STVRT 018",
+      name: "Laser Engraving PU Drop Shaped Metal Keychain",
+      image: "/products/STVRT018.jpg", 
+      category: "Promotional Gifts"
+    },
+    {
+      id: "STVRT 020",
+      name: "Eco Friendly Laser Engraved Wooden Keychain",
+      image: "/products/STVRT020.jpg", 
+      category: "Promotional Gifts"
+    },
+    {
+      id: "STVRT 021",
+      name: "Nylon Multifunctional Tactical Carabiner Keychain",
+      image: "/products/STVRT021.jpg", 
+      category: "Promotional Gifts"
+    },
+  ],
+  "Tech Accessories": [
+    {
+      id: "STVRT 061",
+      name: "USB Desk Air Circulator Fan w/ 90° Tilt and Wide Base",
+      image: "/products/STVRT061.jpg", 
+      category: "Tech Accessories"
+    },
+    {
+      id: "STVRT 062",
+      name: "128GB Wallet-Size Credit Card USB Flash Drive",
+      image: "/products/STVRT062.jpg", 
+      category: "Tech Accessories"
+    },
+    {
+      id: "STVRT 065",
+      name: "3 Speeds USB-C Mini Display Handheld Fan w/ Stand",
+      image: "/products/STVRT065.jpg", 
+      category: "Tech Accessories"
+    },
+    {
+      id: "STVRT 066",
+      name: "USB Rechargeable Power Bank Foldable Pocket Mini Fan",
+      image: "/products/STVRT066.jpg", 
+      category: "Tech Accessories"
+    },
+  ],
+  "Writing Instruments": [
+    {
+      id: "STVRT 001",
+      name: "Acrylic Logo Patch ABS Gel Ink Pen",
+      image: "/products/STVRT001.jpg", 
+      category: "Writing Instruments"
+    },
+    {
+      id: "STVRT 006",
+      name: "Heavy Duty Silicone Jar Opener Coaster Pad 5 Inch",
+      image: "/products/STVRT006.jpg", 
+      category: "Writing Instruments"
+    },
+    {
+      id: "STVRT 025",
+      name: "Water-Resistant Mesh Document Pouch With Cord Zipper Pull",
+      image: "/products/STVRT025.jpg", 
+      category: "Writing Instruments"
+    },
+    {
+      id: "STVRT 026",
+      name: "See-Through Nylon Mesh Zipper Pouch For Cables And Coins",
+      image: "/products/STVRT026.jpg", 
+      category: "Writing Instruments"
+    },
+  ],
+};
