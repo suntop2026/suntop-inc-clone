@@ -1,0 +1,91 @@
+## 📸 缺失图片产品报告
+
+尊敬的用户，
+
+以下是 suntopify.com 网站中目前使用占位符图片（`/placeholder.svg`）的 **73 个产品**的详细清单。这些产品需要您提供实际的图片文件，以替换当前的占位符，从而提升网站的视觉效果和用户体验。
+
+### 💡 **图片存储路径**
+
+所有产品图片都应存储在项目根目录下的 `/public/products/` 文件夹中。图片命名规则为：`产品编号（去除空格）.jpg`。例如，产品 `STVRT 001` 对应的图片文件应命名为 `STVRT001.jpg`。
+
+### 📋 **缺失图片产品清单**
+
+| ID | Name | Category |
+| :--- | :--- | :--- |
+| STVRT 100 | Construction Bulldozer PU Foam Stress Reliever | Health & Wellness |
+| STVRT 101 | Classic PU Football Stress Reliever With Laces Look | Health & Wellness |
+| STVRT 102 | Slow Rise PU Foam Baseball Stress Reliever | Health & Wellness |
+| STVRT 103 | Slow Rise PU Foam Pumpkin Stress Reliever | Health & Wellness |
+| STVRT 104 | Slow Rise PU Foam Pencil Stress Reliever | Health & Wellness |
+| STVRT 105 | Slow Rise PU Foam Money Wad Stress Reliever | Health & Wellness |
+| STVRT 106 | Slow Rise PU Foam Hard Hat Stress Reliever | Health & Wellness |
+| STVRT 107 | Slow Rise Hot Air Balloon Stress Reliever Soft Travel PU Foam Squeezer | Health & Wellness |
+| STVRT 108 | Slow Rise Airplane Stress Reliever | Health & Wellness |
+| STVRT 109 | USB Rechargeable Mini Fan With Power Bank Light | Tech Accessories |
+| STVRT 110 | Unisex Moisture Wicking Quick Dry Athletic Tee | Apparel & Accessories |
+| STVRT 111 | Reusable Wine Bottle Cooler Sleeve with Quick-Freeze Gel Pack | Drinkware |
+| STVRT 112 | Neoprene Golf Beer Cooler Sleeve Bag for 7 Cans with Zipper | Drinkware |
+| STVRT 113 | 20L Waterproof Dry Bag Swim Buoy with Roll-Top Closure | Bags & Totes |
+| STVRT 114 | Insulated Medicine Cooler Case with Ice Packs for Travel | Drinkware |
+| STVRT 115 | "83"" Microfiber Beach Chair Towel Cover with Storage Pocket" | Apparel & Accessories |
+| STVRT 116 | 21 oz Reusable Aluminum Party Cup for Camping & Events | Drinkware |
+| STVRT 117 | 4IN Rechargeable Cordless LED Camping Lantern with Multiple Light Modes | Promotional Gifts |
+| STVRT 118 | "18"" Pop-Up Sun Shade Mini Tent with UV Protection & Storage Pockets" | Promotional Gifts |
+| STVRT 119 | "59"" Full-Color Printed Picnic Blanket with Waterproof Bottom" | Apparel & Accessories |
+| STVRT 120 | 6 lb Neoprene Weighted Training Vest with Pocket & Reflective Strips | Apparel & Accessories |
+| STVRT 121 | 40 oz Insulated Water Bottle Sling Bag with Phone Pocket | Drinkware |
+| STVRT 122 | 16 oz Disposable BPA-Free Plastic Party Cups | Drinkware |
+| STVRT 123 | "Kids 16"" Beach Sand Shovel Toy with Wooden Handle & Wide Scoop" | Promotional Gifts |
+| STVRT 124 | 35L Gym Backpack with Shoe Compartment & Wet Pocket | Bags & Totes |
+| STVRT 125 | "13.8"" Travel Cable Organizer Pouch for Chargers & Accessories" | Office & Stationery |
+| STVRT 126 | Solar Powered Outdoor Hanging Lantern Light With Auto On/Off | Promotional Gifts |
+| STVRT 127 | Aluminum Metal Dice Set With Storage Box For Casino And Game Night | Promotional Gifts |
+| STVRT 128 | PU Leather Sunglasses Pouch With Strap And Zipper For Travel And Outdoors | Promotional Gifts |
+| STVRT 129 | 8.6 x 11.8in Biodegradable Leakproof Dog Waste Bag Rolls W/ Easy Tear | Bags & Totes |
+| STVRT 130 | Adjustable Suction Vent Car Phone Mount W/ One Touch Release | Tech Accessories |
+| STVRT 131 | A5 Lined PU Leather Journal Notebook For Daily Notes And Meetings | Office & Stationery |
+| STVRT 132 | A5 PU Leather Business Binder Notebook With Pockets | Office & Stationery |
+| STVRT 133 | "13""*10"" PU Leather Document Folder W/ Card Slots And Pen Loop" | Office & Stationery |
+| STVRT 134 | 8-Piece Travel Packing Cube Suitcase Organizer Set | Promotional Gifts |
+| STVRT 135 | Mini Aluminum Alloy Outdoor Carabiner Flashlight | Promotional Gifts |
+| STVRT 136 | "7.88"" Foldable Nylon Hand Fan With Pouch" | Promotional Gifts |
+| STVRT 137 | "7.88"" Foldable Nylon Hand Fan With Reflector Back" | Promotional Gifts |
+| STVRT 138 | LED Light-Up Party Hat With Built-In Lights | Promotional Gifts |
+| STVRT 139 | 6x7in Glowing Light Up Crystal Memorial Plaque With Wood Base | Promotional Gifts |
+| STVRT 140 | A5 Engravable Beechwood Memorial Keepsake Plaque | Promotional Gifts |
+| STVRT 141 | A4 Mirror Finish Stainless Steel Recognition Plaque | Promotional Gifts |
+| STVRT 142 | A4 Wall/Table Metal Alloy Display Plaque With Velvet Backing | Promotional Gifts |
+| STVRT 143 | 5in Polyester Custom Logo Short Phone Strap Keychain | Promotional Gifts |
+| STVRT 144 | 35in Kids EVA Lightweight Waterproof Rain Poncho | Apparel & Accessories |
+| STVRT 145 | A4 Thick Paper Notepad 25 Sheets 100GSM | Office & Stationery |
+| STVRT 146 | 2in x 164ft Biodegradable Reinforced Water Activated Kraft Tape | Office & Stationery |
+| STVRT 147 | 3 Inch X 164 Ft Reinforced Water Activated Kraft Tape Roll | Office & Stationery |
+| STVRT 148 | 100 Sheets Premium A4 PU Leather Refillable Notebook | Office & Stationery |
+| STVRT 149 | Pastel 2x2 Sticky Notes Memo Pad Set With Hang Tab | Office & Stationery |
+| STVRT 150 | Pocket 3x2 Sticky Notes With Index Tabs Cover | Office & Stationery |
+| STVRT 151 | 4.75in Round Flower 7 Day Pill Organizer With Rainbow Compartments | Health & Wellness |
+| STVRT 152 | Wood Frame Handheld Tambourine With Jingles | Promotional Gifts |
+| STVRT 153 | "1"" Stainless Steel Dice Keychain With Swivel Clasp" | Promotional Gifts |
+| STVRT 154 | 47x60 Foldable Picnic Blanket With Carry Handle Bag | Apparel & Accessories |
+| STVRT 155 | "1.25"" ABS Fidget Cube Keychain W/ Tactile Buttons And Rollers" | Promotional Gifts |
+| STVRT 156 | 16 Oz Stainless Steel Vacuum Insulated Gym Bottle With Matte Finish | Drinkware |
+| STVRT 157 | Smart Pet ID Tag With NFC And QR Code For Instant Contact Info | Promotional Gifts |
+| STVRT 158 | RFID Cloth Wristbands For Secure Event Entry And Fast Check In | Health & Wellness |
+| STVRT 159 | RFID Silicone Wristband With NFC Chip For Events | Health & Wellness |
+| STVRT 160 | Collapsible Neoprene Can Cooler Sleeve With Zippers | Drinkware |
+| STVRT 161 | A7 80 Pages 100g Paper PU Spiral Notebook W/ Secure Button Closure | Office & Stationery |
+| STVRT 162 | Adjustable Phone Lanyard Crossbody Strap With Zipper Pouch | Promotional Gifts |
+| STVRT 163 | Ceramic Lined Vacuum Insulated Travel Coffee Mug 12 Oz | Drinkware |
+| STVRT 164 | 22 Oz Vacuum Insulated Stainless Steel Bottle With Screw Lid | Drinkware |
+| STVRT 165 | Hard Hat Keychain Bottle Opener For Safety And Jobsite Promos | Promotional Gifts |
+| STVRT 166 | Western Cowboy Hat Keychain Bottle Opener For Events | Promotional Gifts |
+| STVRT 167 | Halloween Pumpkin Drawstring Candy Bag For Trick Or Treat | Promotional Gifts |
+| STVRT 168 | Glowing Light Up Pumpkin Candy Bucket W/ LED Handle | Promotional Gifts |
+| STVRT 169 | Flexible Paw Print Vinyl Key Tag W/ Split Ring | Promotional Gifts |
+| STVRT 170 | House Shaped Magnetic Clip W/ Sticky Notes Pad | Office & Stationery |
+| STVRT 171 | Festival Slow Rise Santa Snowman Reindeer Stress Reliever | Health & Wellness |
+| STVRT 172 | Quirky Porta Potty Squeezable PU Foam Stress Reliever | Health & Wellness |
+
+### 🚀 **下一步建议**
+
+请您根据此清单，准备并上传对应的图片文件到 `/public/products/` 目录中。上传完成后，我将再次验证并更新网站。
