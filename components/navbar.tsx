@@ -5,9 +5,18 @@ import Link from "next/link"
 import { ChevronDown, Menu, X } from "lucide-react"
 import Image from "next/image"
 import { siteConfig } from "@/config/site-config"
-import { CATEGORIES } from "@/lib/products-data"
 
-const SITE_LOGO = "/logo.png"
+// 严格执行 Excel 的 8 大分类
+const CATEGORIES = [
+  "Writing Instruments",
+  "Bags & Totes",
+  "Drinkware",
+  "Tech Accessories",
+  "Office & Stationery",
+  "Apparel & Accessories",
+  "Health & Wellness",
+  "Promotional Gifts"
+]
 
 export function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null)
@@ -22,7 +31,7 @@ export function Navbar() {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-primary shadow-lg">
       <div className="mx-auto max-w-7xl px-4">
         <div className="flex h-16 items-center justify-between">
-          {/* Logo - Icon Only */}
+          {/* Logo */}
           <Link href="/" className="flex items-center">
             <div className="relative h-12 w-12">
               <Image
@@ -35,7 +44,7 @@ export function Navbar() {
             </div>
           </Link>
 
-          {/* Desktop Menu - Simple text-based navigation */}
+          {/* Desktop Menu - 8 Main Categories Only */}
           <div className="hidden lg:flex items-center gap-1">
             {CATEGORIES.map((category) => (
               <div
@@ -58,15 +67,12 @@ export function Navbar() {
                   <ChevronDown className="h-4 w-4" />
                 </Link>
 
-                {/* Simple text-based dropdown menu */}
+                {/* Simple text dropdown */}
                 {activeMenu === category && (
                   <div className="absolute left-0 top-full pt-2 animate-in fade-in slide-in-from-top-2 duration-200">
                     <div className="bg-card border border-border rounded-lg shadow-2xl p-4 w-max">
-                      <p className="text-xs font-semibold text-muted-foreground uppercase mb-3">
-                        {category}
-                      </p>
-                      <p className="text-sm text-card-foreground">
-                        Click to view all products in this category
+                      <p className="text-sm font-semibold text-card-foreground">
+                        Browse all {category}
                       </p>
                     </div>
                   </div>
@@ -75,19 +81,19 @@ export function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Menu - Contact & Quote */}
+          {/* Right Side Actions */}
           <div className="hidden lg:flex items-center gap-3">
-            <Link
-              href="/contact"
-              className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
-            >
-              Contact Us
-            </Link>
             <Link
               href="/ai-design"
               className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
             >
               🎨 AI Design Lab
+            </Link>
+            <Link
+              href="/contact"
+              className="px-3 py-2 text-sm font-medium text-primary-foreground hover:text-secondary transition-colors"
+            >
+              Contact Us
             </Link>
             <Link
               href="/quote"
@@ -97,13 +103,14 @@ export function Navbar() {
             </Link>
           </div>
 
+          {/* Mobile Menu Button */}
           <button className="lg:hidden text-primary-foreground" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
             {mobileMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
       </div>
 
-      {/* Mobile menu */}
+      {/* Mobile Menu */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 top-16 bg-card z-40 overflow-y-auto">
           <div className="p-4 space-y-2">
@@ -119,18 +126,18 @@ export function Navbar() {
             ))}
             <hr className="my-4" />
             <Link
-              href="/contact"
-              className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
-              onClick={() => setMobileMenuOpen(false)}
-            >
-              Contact Us
-            </Link>
-            <Link
               href="/ai-design"
               className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
               onClick={() => setMobileMenuOpen(false)}
             >
               🎨 AI Design Lab
+            </Link>
+            <Link
+              href="/contact"
+              className="block w-full text-center px-6 py-3 text-card-foreground hover:bg-muted rounded-lg font-semibold transition-colors"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              Contact Us
             </Link>
             <Link
               href="/quote"
