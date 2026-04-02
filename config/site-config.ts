@@ -5,10 +5,10 @@ export const siteConfig = {
   email: "sales@suntopify.com",
   phone: "+1 (919) 899-9969",
   address: {
-    street: "20533 East Walnut Drive North",
-    city: "Diamond Bar",
-    state: "CA",
-    zip: "91789",
+    street: "14120 Sullyfield Circle, Suite H",
+    city: "Chantilly",
+    state: "VA",
+    zip: "20151",
     country: "USA",
   },
   socials: {
@@ -29,20 +29,20 @@ export const siteConfig = {
   // Hero Section
   hero: {
     background: {
-      url: "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=1920",
+      url: "/factory-manufacturing.jpg",
       alt: "Modern manufacturing facility background",
     },
     productShowcase: {
       tshirts: {
-        url: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?auto=format&fit=crop&q=80&w=400",
-        alt: "Custom branded t-shirts",
+        url: "/hero-custom-apparel.jpg",
+        alt: "Custom branded t-shirts and corporate apparel",
       },
       mugs: {
-        url: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?auto=format&fit=crop&q=80&w=400",
-        alt: "Custom coffee mugs with logo",
+        url: "/hero-drinkware.jpg",
+        alt: "Custom coffee mugs and drinkware with logo",
       },
       tech: {
-        url: "https://images.unsplash.com/photo-1625948515291-69613efd103f?auto=format&fit=crop&q=80&w=400",
+        url: "/hero-tech-items.jpg",
         alt: "Tech accessories and promotional items",
       },
     },
@@ -51,35 +51,35 @@ export const siteConfig = {
   // Product Grid
   products: {
     tshirts: {
-      url: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-tshirts.jpg",
       alt: "Custom printed t-shirts for corporate branding",
     },
     mugs: {
-      url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-mugs.jpg",
       alt: "Custom coffee mugs with company logo",
     },
     usbDrives: {
-      url: "https://images.unsplash.com/photo-1597872200969-2b65d56bd16b?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-usb-drives.jpg",
       alt: "Branded USB flash drives",
     },
     toteBags: {
-      url: "https://images.unsplash.com/photo-1594223274512-ad4803739b7c?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-tote-bags.jpg",
       alt: "Custom tote bags for promotional events",
     },
     pens: {
-      url: "https://images.unsplash.com/photo-1583483425010-c566431a7710?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-pens-office.jpg",
       alt: "Promotional pens with custom branding",
     },
     waterBottles: {
-      url: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-water-bottles.jpg",
       alt: "Branded water bottles for corporate gifts",
     },
     caps: {
-      url: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-caps-hats.jpg",
       alt: "Custom baseball caps and hats",
     },
     powerBanks: {
-      url: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=800&auto=format&fit=crop",
+      url: "/custom-power-banks.jpg",
       alt: "Promotional power banks with logo",
     },
   },
@@ -87,145 +87,145 @@ export const siteConfig = {
   megaMenu: {
     apparel: {
       tshirts: {
-        url: "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-tshirts.jpg",
         alt: "Custom t-shirts for corporate branding",
       },
       polos: {
-        url: "https://images.unsplash.com/photo-1590412497465-ce18451159b3?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-polo-shirts.jpg",
         alt: "Branded polo shirts",
       },
       hats: {
-        url: "https://images.unsplash.com/photo-1533055640609-24b498dfd74c?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-caps-hats.jpg",
         alt: "Custom hats and caps",
       },
       hoodies: {
-        url: "https://images.unsplash.com/photo-1556821840-3a63f95609a7?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-hoodies.jpg",
         alt: "Custom branded hoodies",
       },
     },
     drinkware: {
       waterBottles: {
-        url: "https://images.unsplash.com/photo-1602143407151-7111542de6e8?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-water-bottles.jpg",
         alt: "Branded water bottles",
       },
       mugs: {
-        url: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-mugs.jpg",
         alt: "Custom coffee mugs",
       },
       tumblers: {
-        url: "https://images.unsplash.com/photo-1610557892470-55d9e80c0bce?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-tumblers.jpg",
         alt: "Insulated tumblers with logo",
       },
       glassware: {
-        url: "https://images.unsplash.com/photo-1481671703460-040cb8a2d909?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-glassware.jpg",
         alt: "Custom branded glassware",
       },
     },
     tech: {
       usbDrives: {
-        url: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-usb-drives.jpg",
         alt: "Branded USB drives",
       },
       powerBanks: {
-        url: "https://images.unsplash.com/photo-1609091839311-d5365f9ff1c5?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-power-banks.jpg",
         alt: "Promotional power banks",
       },
       headphones: {
-        url: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&q=80&w=300",
+        url: "/custom-headphones.jpg",
         alt: "Branded headphones",
       },
       phoneAccessories: {
-        url: "https://images.unsplash.com/photo-1601784551446-20c9e07cdbdb?auto=format&fit=crop&q=80&w=300",
+        url: "/custom-phone-accessories.jpg",
         alt: "Custom phone accessories",
       },
     },
     office: {
       pens: {
-        url: "https://images.unsplash.com/photo-1583485088034-697b5bc54ccd?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-pens-office.jpg",
         alt: "Promotional pens",
       },
       notebooks: {
-        url: "https://images.unsplash.com/photo-1531346878377-a5be20888e57?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-notebooks-journals.jpg",
         alt: "Custom notebooks",
       },
       deskAccessories: {
-        url: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-desk-accessories.jpg",
         alt: "Branded desk accessories",
       },
       calendars: {
-        url: "https://images.unsplash.com/photo-1506784983877-45594efa4cbe?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-calendars.jpg",
         alt: "Custom calendars",
       },
     },
     bags: {
       toteBags: {
-        url: "https://images.unsplash.com/photo-1591348278863-da4f4c84f58e?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-tote-bags.jpg",
         alt: "Custom tote bags",
       },
       backpacks: {
-        url: "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-backpacks.jpg",
         alt: "Branded backpacks",
       },
       duffelBags: {
-        url: "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-duffel-bags.jpg",
         alt: "Custom duffel bags",
       },
       laptopBags: {
-        url: "https://images.unsplash.com/photo-1622560480605-d83c853bc5c3?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-laptop-bags.jpg",
         alt: "Promotional laptop bags",
       },
     },
     wellness: {
       yogaMats: {
-        url: "https://images.unsplash.com/photo-1592419044706-39796d40f98c?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-yoga-mats.jpg",
         alt: "Branded yoga mats",
       },
       fitnessBands: {
-        url: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-fitness-bands.jpg",
         alt: "Custom fitness bands",
       },
       stressBalls: {
-        url: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-stress-balls.jpg",
         alt: "Promotional stress balls",
       },
       handSanitizers: {
-        url: "https://images.unsplash.com/photo-1584735935682-2f2b69dff9d2?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-hand-sanitizers.jpg",
         alt: "Branded hand sanitizers",
       },
     },
     homeGarden: {
       blankets: {
-        url: "https://images.unsplash.com/photo-1555041469-a586c61ea9bc?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-blankets.jpg",
         alt: "Custom branded blankets",
       },
       candles: {
-        url: "https://images.unsplash.com/photo-1603006905003-be475563bc59?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-candles.jpg",
         alt: "Promotional candles",
       },
       coasters: {
-        url: "https://images.unsplash.com/photo-1515955656352-a1fa3ffcd111?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-coasters.jpg",
         alt: "Branded coasters",
       },
       tools: {
-        url: "https://images.unsplash.com/photo-1426927308491-6380b6a9936f?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-tools.jpg",
         alt: "Custom tools",
       },
     },
     other: {
       keychains: {
-        url: "https://images.unsplash.com/photo-1622434641406-a158123450f9?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-keychains.jpg",
         alt: "Promotional keychains",
       },
       lanyards: {
-        url: "https://images.unsplash.com/photo-1557687790-902ede7ab58c?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-lanyards.jpg",
         alt: "Custom lanyards",
       },
       badges: {
-        url: "https://images.unsplash.com/photo-1611532736597-de2d4265fba3?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-badges.jpg",
         alt: "Branded badges",
       },
       magnets: {
-        url: "https://images.unsplash.com/photo-1591535496628-98f986612255?q=80&w=300&auto=format&fit=crop",
+        url: "/custom-magnets.jpg",
         alt: "Promotional magnets",
       },
     },
@@ -234,15 +234,15 @@ export const siteConfig = {
   // Factory Section
   factory: {
     manufacturing: {
-      url: "https://images.unsplash.com/photo-1565043666747-69f6646db940?auto=format&fit=crop&q=80&w=800",
+      url: "/factory-manufacturing.jpg",
       alt: "State-of-the-art manufacturing facility with modern equipment",
     },
     delivery: {
-      url: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&q=80&w=800",
+      url: "/factory-delivery.jpg",
       alt: "Fast delivery and logistics operations",
     },
     quality: {
-      url: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&q=80&w=800",
+      url: "/factory-quality.jpg",
       alt: "Quality control and ISO certification processes",
     },
   },
@@ -251,37 +251,37 @@ export const siteConfig = {
   trustedBy: [
     {
       name: "TechCorp",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "TechCorp logo",
     },
     {
       name: "GlobalBrand",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "GlobalBrand logo",
     },
     {
       name: "InnovateCo",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "InnovateCo logo",
     },
     {
       name: "NextGen",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "NextGen logo",
     },
     {
       name: "FutureGroup",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "FutureGroup logo",
     },
     {
       name: "PrimeSolutions",
-      url: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=150",
+      url: "/logo.png",
       alt: "PrimeSolutions logo",
     },
   ],
 
-  fallbackImage: "https://images.unsplash.com/photo-1560393464-5c69a73c5770?auto=format&fit=crop&q=80&w=300",
+  fallbackImage: "/logo.png",
 }
 
 // Helper function to get image data

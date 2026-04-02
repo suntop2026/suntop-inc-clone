@@ -61,14 +61,14 @@ function generateSlug(name: string): string {
 }
 
 const categoryFallbacks: Record<string, string> = {
-  Apparel: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=600&h=600&fit=crop",
-  Drinkware: "https://images.unsplash.com/photo-1514228742587-6b1558fcca3d?w=600&h=600&fit=crop",
-  Tech: "https://images.unsplash.com/photo-1624823183493-ed5832f48f18?w=600&h=600&fit=crop",
-  Office: "https://images.unsplash.com/photo-1586943759665-ab7d56e7e940?w=600&h=600&fit=crop",
-  Bags: "https://images.unsplash.com/photo-1591348278863-da4f4c84f58e?w=600&h=600&fit=crop",
-  Wellness: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=600&h=600&fit=crop",
-  "Home & Garden": "https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=600&h=600&fit=crop",
-  Other: "https://images.unsplash.com/photo-1526178613552-2b45c6c302f0?w=600&h=600&fit=crop",
+  Apparel: "/custom-tshirts.jpg",
+  Drinkware: "/custom-mugs.jpg",
+  Tech: "/custom-usb-drives.jpg",
+  Office: "/custom-pens-office.jpg",
+  Bags: "/custom-tote-bags.jpg",
+  Wellness: "/custom-wellness-products.jpg",
+  "Home & Garden": "/custom-home-garden.jpg",
+  Other: "/custom-keychains-accessories.jpg",
 }
 
 /**

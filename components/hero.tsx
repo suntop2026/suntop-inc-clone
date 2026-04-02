@@ -93,7 +93,7 @@ export function Hero() {
                 <Image
                   src={
                     siteConfig.hero.productShowcase.tshirts.url ||
-                    "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?w=800&h=800&fit=crop"
+                    "/hero-custom-apparel.jpg"
                   }
                   alt={siteConfig.hero.productShowcase.tshirts.alt}
                   fill
@@ -112,7 +112,7 @@ export function Hero() {
                 <Image
                   src={
                     siteConfig.hero.productShowcase.mugs.url ||
-                    "https://images.unsplash.com/photo-1514432324607-2e467f4af445?w=800&h=800&fit=crop"
+                    "/hero-drinkware.jpg"
                   }
                   alt={siteConfig.hero.productShowcase.mugs.alt}
                   fill
@@ -128,7 +128,7 @@ export function Hero() {
                 <Image
                   src={
                     siteConfig.hero.productShowcase.tech.url ||
-                    "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=800&h=800&fit=crop"
+                    "/hero-tech-items.jpg"
                   }
                   alt={siteConfig.hero.productShowcase.tech.alt}
                   fill
